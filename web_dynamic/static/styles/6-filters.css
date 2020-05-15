@@ -77,7 +77,11 @@ button:hover {
 .amenities .popover ul{
     margin: 0px;
 }
-
+.amenities .popover ul li input{
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-top: 2px;
+}
 .locations .popover {
     margin-top: 0%;
 }
