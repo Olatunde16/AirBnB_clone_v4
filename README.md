@@ -150,14 +150,47 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) quit
 ```
 
+## 0x06. AirBnB clone - Web dynamic
+
+### Learning Objective
+
+
+- How cool it is to request your own API
+- How to modify an HTML element style
+- How to get and update an HTML element content
+- How to modify the DOM
+- How to make a `GET` request with jQuery Ajax
+- How to make a `POST` request with jQuery Ajax
+- How to listen/bind to DOM events
+- How to listen/bind to user events
+
+### Tasks
+
+_**0. Last clone!**_  
+
+_**1. Cash only**_  
+Write a script that starts a Flask web application.  
+
+_**2. Select some Amenities to be comfortable!**_  
+Replace the route `0-hbnb` with `1-hbnb` in the file `1-hbnb.py` (based on `0-hbnb.py`)  
+
+_**3. API status**_  
+Update the API entry point (`api/v1/app.py`) by replacing the current CORS `CORS(app, origins="0.0.0.0")` by `CORS(app, resources={r"/api/v1/*": {"origins": "*"}})`.  
+
+_**4. Fetch places**_  
+Replace the route `2-hbnb` with `3-hbnb` in the file `3-hbnb.py` (based on `2-hbnb.py`).  
+
+_**5. Filter places by Amenity**_  
+Replace the route `3-hbnb` with `4-hbnb` in the file `4-hbnb.py` (based on `3-hbnb.py`).  
+
+
 ## Bugs
 No known bugs at this time. 
 
 ## Authors
-Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
-Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
-David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
+Oscar Gomez - [Github](https://github.com/oscargomez87)
+Kevin Castro - [Github](https://github.com/KevinCastroP)
+Luis Herrera - [Github](https://github.com/lh1008)
 
 Second part of Airbnb: Joann Vuong
 ## License
