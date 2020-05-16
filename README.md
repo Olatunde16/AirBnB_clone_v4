@@ -188,9 +188,16 @@ Replace the route `3-hbnb` with `4-hbnb` in the file `4-hbnb.py` (based on `3-hb
 No known bugs at this time. 
 
 ## Authors
-Oscar Gomez - [Github](https://github.com/oscargomez87)
-Kevin Castro - [Github](https://github.com/KevinCastroP)
-Luis Herrera - [Github](https://github.com/lh1008)
+Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
+Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
+Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
+David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
+
+**Cohort 10 Contributors**
+
+Oscar Gomez - [Github](https://github.com/oscargomez87) / [Twitter](https://twitter.com/OscarGo86348689)  
+Kevin Castro - [Github](https://github.com/KevinCastroP) / [Twitter](https://twitter.com/ccali_k)  
+Luis Herrera - [Github](https://github.com/lh1008) / [Twitter](https://twitter.com/lh1008)  
 
 Second part of Airbnb: Joann Vuong
 ## License
