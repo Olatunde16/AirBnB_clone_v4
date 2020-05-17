@@ -3,7 +3,7 @@ $(document).ready(function () {
   const $amenitiesCheck = $('input[type=checkbox]');
   const $selectedAmenities = $('div.amenities h4');
   const $statusIndicator = $('div#api_status');
-  const statusUri = 'http://192.168.2.7:5001/api/v1/status/';
+  const statusUri = 'http://0.0.0.0:5001/api/v1/status/';
 
   $amenitiesCheck.click(function () {
     if ($(this).is(':checked')) {
