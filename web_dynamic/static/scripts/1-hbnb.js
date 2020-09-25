@@ -1,10 +1,22 @@
+const amenities = {};
+
 $(document).ready(function () {
-  let amenities = [];
-  if ($('input').attr('checked')) {
-    amenities.append($('input').data('id'));
-  } else {
-    amenities.pop($('input').data('id'));
-  }
-  $('div.amenities h4').html(amenities);
+  $('input').each(function () {
+    checkAndAppend(this);
+  });
 });
 
+function checkAndAppend (inp) {
+  $(inp).click(function () {
+    if ($(inp).prop('checked')) {
+      amenities[$(inp).data('id')] = $(inp).data('name');
+      console.log(amenities);
+    } else {
+      delete amenities[$(inp).data('id')];
+    }
+    $('div.amenities h4').html(Object.values(amenities).join(', '));
+    if (Object.values(amenities).length === 0) {
+      $('div.amenities h4').html('&nbsp;');
+    }
+  });
+}
