@@ -101,3 +101,7 @@ button:hover {
 .locations:hover .popover {
     visibility: visible;
 }
+
+/*.filters .amenities li {
+    padding-left: 10px;
+}*/
