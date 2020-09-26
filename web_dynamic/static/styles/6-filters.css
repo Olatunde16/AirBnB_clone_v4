@@ -60,7 +60,6 @@ button:hover {
     padding-bottom: 15px;
     height: 300px;
     overflow-y: scroll;
-    scrollbar-width: none;
     max-height: 300px;
 }
 
@@ -109,4 +108,8 @@ button:hover {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+}
+
+.popover ul li input{
+    margin-right: 10px;
 }

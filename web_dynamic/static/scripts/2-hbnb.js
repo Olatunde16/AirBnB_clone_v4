@@ -4,15 +4,15 @@ $(document).ready(function () {
   $('input').each(function () {
     checkAndAppend(this);
   });
-  $.get('http://0.0.0.0:5001/api/v1/status/', function (data){
-    if (data.status === "OK"){
-      $('div#api_status').add('available');
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
+    if (data.status === 'OK') {
+      $('div#api_status').addClass('available');
     } else {
-      if($('div#api_status').hasClass("available")){
-        $('div#api_status').removeClass("available");
+      if ($('div#api_status').hasClass('available')) {
+        $('div#api_status').removeClass('available');
       }
     }
-  }, 'json')
+  }, 'json');
 });
 
 function checkAndAppend (inp) {
@@ -29,4 +29,3 @@ function checkAndAppend (inp) {
     }
   });
 }
-

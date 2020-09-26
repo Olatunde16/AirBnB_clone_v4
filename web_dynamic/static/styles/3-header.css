@@ -3,19 +3,25 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 header .logo {
     background: url("../images/logo.png") no-repeat;
-    left: 20px;
+    margin-left: 20px;
     height: 100%;
+    width: 90%;
+}
+header div.available {
+    background-color: #ff545f;
 }
 #api_status {
-    right: 30px;
-    height: 100%;
+    margin-right: 30px;
+    height: 40px;
     border-radius: 100%;
     width: 40px;
-    background-color: #CCCCCC;
 }
-.available{
-    background-color: #ff545f;
+header :last-child {
+    background-color: #CCCCCC;
 }
