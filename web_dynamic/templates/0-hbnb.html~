@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
     <meta charset="UTF-8">
-    <SCRIPT>$.ajaxSetup({'cache':true})</SCRIPT>
-    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css">
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css{{ cache_id }}">
     <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css">
