@@ -8,12 +8,22 @@ $(document).ready(function () {
 			if (!dict[k]) {
 				dict[k] = v;
 			}
-			$('.amenitites h4').append(dict[k]);
-    } else {
+    } else if (!(this).checked) {
 			delete dict[k];
-			$('.amenitites h4').remove(dict[k]);
     }
-    console.log(dict);
-    $('.amenitites h4').append(dict[k]);
+		$('.amenities h4').empty();
+		const vals = Object.values(dict);
+		const length = vals.length;
+		vals.forEach((val, index) => {
+			$('.amenities h4').append(val);
+			console.log(dict);
+			if (index < length - 1) {
+				$('.amenities h4').append(', ');
+			}
+		});
+		if (length === 0) {
+			console.log('dict is empty');
+      $('.amenities h4').append('&nbsp;');
+		}
   });
 });

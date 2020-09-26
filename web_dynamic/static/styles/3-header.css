@@ -10,7 +10,9 @@ header .logo {
     height: 100%;
 }
 header #api_status {
-    align: right;
+    position: absolute;
+    right: 30px;
+    margin-top: -55px;
     height: 40px;
     width: 40px;
     border-radius: 50%;
