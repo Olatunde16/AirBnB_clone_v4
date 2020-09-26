@@ -102,6 +102,6 @@ button:hover {
     visibility: visible;
 }
 
-/*.filters .amenities li {
-    padding-left: 10px;
-}*/
+.amenities .popover ul li INPUT{
+    margin-right: 10px;
+}
