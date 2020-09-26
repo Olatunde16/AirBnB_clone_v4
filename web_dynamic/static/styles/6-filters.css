@@ -5,6 +5,8 @@
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 button {
     position: absolute;
@@ -38,7 +40,9 @@ button:hover {
 .filters h4 {
     margin-left: 15%;
     margin-top: 0;
-    font-weight: 400;
+    white-space:nowrap;
+    width: 100px;
+   font-weight: 400;
     font-size: 14px;
 }
 .locations {
