@@ -50,7 +50,14 @@ button:hover {
     height: 100%;
     width: 25%;
 }
-
+.amenities > h4 {
+    overflow-y: hidden;
+    max-width: 100%;/** your width **/
+    height: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    scrollbar-width: none;
+}
 .popover {
     visibility: hidden;
     width: 100%;
