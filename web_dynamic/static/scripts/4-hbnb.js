@@ -1,4 +1,4 @@
-const amenities = {};
+const amenitiesDict = {};
 
 $(document).ready(function () {
   $('input').each(function () {
@@ -17,28 +17,28 @@ $(document).ready(function () {
   searchPlaces();
 
   $('button').click(function () {
-    searchPlaces({ 'amenities': Object.keys(amenities) });
+    searchPlaces({ amenities: Object.keys(amenitiesDict) });
   });
 });
 
 function checkAndAppend (inp) {
   $(inp).click(function () {
     if ($(inp).prop('checked')) {
-      amenities[$(inp).data('id')] = $(inp).data('name');
-      console.log(amenities);
+      amenitiesDict[$(inp).data('id')] = $(inp).data('name');
     } else {
-      delete amenities[$(inp).data('id')];
+      delete amenitiesDict[$(inp).data('id')];
     }
-    $('div.amenities h4').html(Object.values(amenities).join(', '));
-    if (Object.values(amenities).length === 0) {
+    $('div.amenities h4').html(Object.values(amenitiesDict).join(', '));
+    if (Object.values(amenitiesDict).length === 0) {
       $('div.amenities h4').html('&nbsp;');
     }
   });
 }
 
 function places (data) {
-  $('section.places').clean();
+  $('section.places').empty();
   for (const place of data) {
+    console.log(place.id);
     $('section.places').append('<article> <div class="title_box"> <h2></h2> <div class="price_by_night"></div> </div> <div class="information"> <div class="max_guest"></div> <div class="number_rooms"></div> <div class="number_bathrooms"></div> </div> <div class="user"></div> <div class="description"></div></article>');
 
     $('div.title_box h2').last().text(place.name);
@@ -72,7 +72,7 @@ function searchPlaces (dataDict = {}) {
   $.ajax({
     url: 'http://0.0.0.0:5001/api/v1/places_search',
     type: 'POST',
-    data: toString(dataDict),
+    data: JSON.stringify(dataDict),
     contentType: 'application/json; charset=utf-8',
     dataType: 'json',
     success: function (data) {
