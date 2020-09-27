@@ -36,19 +36,26 @@ def hbnb():
     places = sorted(places, key=lambda k: k.name)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     cache_id = uuid.uuid4()
 
 =======
 >>>>>>> dee39973009d3e5c1e81d6fbf6271691e34941fb
+=======
+>>>>>>> 3bc6c4d4dc3ab234c4a3a1ec5e03eb9cc3f142a6
     return render_template('0-hbnb.html',
                            states=st_ct,
                            amenities=amenities,
                            places=places,
 <<<<<<< HEAD
+<<<<<<< HEAD
                            cache_id=cache_id)
 =======
                            cache_id=uuid.uuid4())
 >>>>>>> dee39973009d3e5c1e81d6fbf6271691e34941fb
+=======
+                           cache_id=cache_id,
+>>>>>>> 3bc6c4d4dc3ab234c4a3a1ec5e03eb9cc3f142a6
 
 
 if __name__ == "__main__":
