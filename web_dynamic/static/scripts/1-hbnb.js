@@ -1,23 +1,17 @@
 #!/usr/bin/node
 $(document).ready(() => {
-//   let dictio = {};
-  $('input[type=checkbox]').click(
-    function () {
-      if (this.checked) {
-        window.alert('hello');
-      } else {
-        window.alert('false');
-      }
-    });
-});
 
+  var checkAmenities = {};
 
-var checkbox = document.querySelector("input[name=checkbox]");
-
-checkbox.addEventListener( 'change', function() {
-    if(this.checked) {
-        // Checkbox is checked..
-    } else {
-        // Checkbox is not checked..
+  $(':checkbox').click(function(){
+    if($(this).prop("checked") == true){
+      checkAmenities[$(this).data('id')] = $(this).data('name');
+      $('.amenities h4').text(Object.values(checkAmenities).join(', '));
+    }
+    else if($(this).prop("checked") == false){
+      delete checkAmenities[$(this).data('id')]
+      $('.amenities h4').text(Object.values(checkAmenities).join(', '));
     }
 });
+});
+
