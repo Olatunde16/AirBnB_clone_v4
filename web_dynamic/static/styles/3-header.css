@@ -3,12 +3,18 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
 }
 header .logo {
     background: url("../images/logo.png") no-repeat;
     left: 20px;
     height: 100%;
+    width: 50%;
 }
-.available {
-    background: #ff545f;
+header .available {
+    background: #ff545f ;
+}
+header .notAvailable {
+    background: #cccccc ;
 }

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  const request = require('request');
   let amenityObject = {};
 
   $('input[type="checkbox"]').click(function(){
@@ -12,13 +11,14 @@ $(document).ready(function() {
     }
     console.log(amenityObject)
   });
-  request("http://0.0.0.0:5001/api/v1/status/", function (err, resp, body) {
-    if (resp.statusCode === 200) {
-      // let element = document.getElementById("api_status");
-      // element.className += "available";
-      $('api_status').addClass('available');
-    } else {
-      $('api_status').removeClass('available');
+  $.get("http://0.0.0.0:5001/api/v1/status/", function (data, textStatus) {
+    if (textStatus === 'success') {
+      // $("#api_status").addClass("available");
+      $("#api_status").toggleClass('notAvailable');
+      $("#api_status").toggleClass('available');
     }
+    // } else {
+    //   $('#api_status').removeClass('available');
+    // }
   });
 });
