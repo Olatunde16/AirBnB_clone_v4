@@ -13,41 +13,16 @@ $(document).ready(function () {
       }
     }
   }, 'json');
-  $.ajaxSetup({
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
+  $.ajax({
+    url: 'http://0.0.0.0:5001/api/v1/places_search',
+    type: 'POST',
+    data: '{}',
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    success: function (data) {
+      places(data);
     }
   });
-  $.post('http://0.0.0.0:5001/api/v1/places_search/', {}, function (data) {
-    for (const place in data) {
-      $('section.places').append('<article> <div class="title_box"> <h2></h2> <div class="price_by_night"></div> </div> <div class="information"> <div class="max_guest"></div> <div class="number_rooms"></div> <div class="number_bathrooms"></div> </div> <div class="user"> <b>Owner:</b> </div> <div class="description"></div></article>');
-
-      $('.title_box').val(place.name);
-      $('.price_by_night').val(place.price_by_night);
-
-      if (place.max_guest > 1) {
-        $('.max_guest').val(`${place.max_guest} Guests`);
-      } else {
-        $('.max_guest').val(`${place.max_guest} Guest`);
-      }
-
-      if (place.number_room > 1) {
-        $('.number_room').val(`${place.number_room} Bedrooms`);
-      } else {
-        $('.number_room').val(`${place.number_room} Bedroom`);
-      }
-
-      if (place.number_bathrooms > 1) {
-        $('.number_bathrooms').val(`${place.number_bathrooms} Bathrooms`);
-      } else {
-        $('.number_bathrooms').val(`${place.number_bathrooms} Bathroom`);
-      }
-
-      $('.user').append(place.user.first_name, place.user.last_name);
-      $('.description').html(place.description);
-    }
-  }, 'json');
 });
 
 function checkAndAppend (inp) {
@@ -63,4 +38,35 @@ function checkAndAppend (inp) {
       $('div.amenities h4').html('&nbsp;');
     }
   });
+}
+
+function places (data) {
+  for (const place of data) {
+    $('section.places').append('<article> <div class="title_box"> <h2></h2> <div class="price_by_night"></div> </div> <div class="information"> <div class="max_guest"></div> <div class="number_rooms"></div> <div class="number_bathrooms"></div> </div> <div class="user"></div> <div class="description"></div></article>');
+
+    $('div.title_box h2').last().text(place.name);
+    $('.price_by_night').last().text('$' + place.price_by_night);
+
+    if (place.max_guest > 1) {
+      $('.max_guest').last().text(`${place.max_guest} Guests`);
+    } else {
+      $('.max_guest').last().text(`${place.max_guest} Guest`);
+    }
+
+    if (place.number_rooms > 1) {
+      $('.number_rooms').last().text(`${place.number_rooms} Bedrooms`);
+    } else {
+      $('.number_rooms').last().text(`${place.number_rooms} Bedroom`);
+    }
+
+    if (place.number_bathrooms > 1) {
+      $('.number_bathrooms').last().text(`${place.number_bathrooms} Bathrooms`);
+    } else {
+      $('.number_bathrooms').last().text(`${place.number_bathrooms} Bathroom`);
+    }
+
+    /* $('.user').last().append(place.user_id); */
+
+    $('.description').html(place.description);
+  }
 }
