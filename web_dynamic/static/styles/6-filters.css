@@ -105,3 +105,12 @@ button:hover {
 .amenities .popover ul li INPUT{
     margin-right: 10px;
 }
+
+.clicked {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 25%;
+
+}

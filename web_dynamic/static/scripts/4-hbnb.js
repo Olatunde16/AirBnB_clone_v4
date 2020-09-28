@@ -21,7 +21,6 @@ if the checkbox is unchecked, remove Amenity ID from dict
     const length = vals.length;
     vals.forEach((val, index) => {
       $('.amenities h4').append(val);
-      console.log(dict);
       if (index < length - 1) {
         $('.amenities h4').append(', ');
       }
@@ -49,7 +48,7 @@ if the checkbox is unchecked, remove Amenity ID from dict
     }
   });
   // Setup dict for POST request to load places into <articles>
-  $.ajax({
+  const ajaxDict = {
     method: 'POST',
     url: 'http://192.168.33.10:5001/api/v1/places_search/',
     data: JSON.stringify({}),
@@ -70,5 +69,17 @@ if the checkbox is unchecked, remove Amenity ID from dict
         $('.description').last().html(val.description);
       });
     }
+  };
+  // Pass dict to ajaxSetup and call ajax
+  $.ajaxSetup(ajaxDict);
+  $.ajax();
+  // Filters places by amenities when search button clicked
+  $('button').click(function () {
+    // Create k/v pair to pass as data to ajax dict, v is a list of amenity ids
+    const newDict = { amenities: Object.keys(dict) };
+    ajaxDict.data = JSON.stringify(newDict);
+    $.ajaxSetup(ajaxDict);
+    $('section.places').empty();
+    $.ajax();
   });
 });
