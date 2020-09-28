@@ -6,6 +6,7 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
+    position: relative;
 }
 
 header .logo {
@@ -24,6 +25,9 @@ header .logo {
     width:40px;
     height: 40px;
     background-color: #CCCCCC;
+    position: absolute;
+    top: 15%;
+    right: 30px;
 }
 
 #api_status.available {

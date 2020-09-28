@@ -58,6 +58,11 @@ button:hover {
     text-overflow: ellipsis;
     scrollbar-width: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .popover {
     visibility: hidden;
     width: 100%;
