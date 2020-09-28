@@ -23,8 +23,49 @@ $(document).ready(() => {
     contentType: 'application/json',
     dataType: 'json',
     data: '{}',
-    success: function () {
-      alert('asdasd');
+    success: function (data) {
+      for (item of data) {
+        let guest = '';
+        let numberRooms = '';
+        let numberBath = '';
+        let description = '';
+        if (item['max_guest'] != 1) {
+          guest = 'Guests';
+        } else {
+          guest = 'Guest';
+        }
+        if (item['number_rooms'] != 1) {
+          numberRooms = 'Bedrooms';
+        } else {
+          numberRooms = 'Bedroom';
+        }
+        if (item['number_bathrooms'] != 1) {
+          numberBath = 'Bathrooms';
+        } else {
+          numberBath = 'Bathroom';
+        }
+        if(item['description']) {
+          description = item['description'];
+        } else {
+          description = '';
+        }
+        $('.places').append(
+
+        `
+      <article>
+        <div class="title_box">
+          <h2>${item['name']}</h2>
+          <div class="price_by_night">$${item['price_by_night']}</div>
+        </div>
+        <div class="information">
+          <div class="max_guest">${item['max_guest']} ${guest}</div>
+                <div class="number_rooms">${item['number_rooms']} ${numberRooms}</div>
+                <div class="number_bathrooms">${item['number_bathrooms']} ${numberBath}</div>
+        </div>
+          <div class="description">${description}</div>
+      </article>
+        `)
+      }
     }
   });
 
