@@ -102,7 +102,7 @@ button:hover {
     visibility: visible;
 }
 
-.amenities .popover ul li INPUT{
+.popover ul li INPUT{
     margin-right: 10px;
 }
 
@@ -112,5 +112,4 @@ button:hover {
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 25%;
-
 }
