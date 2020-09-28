@@ -154,13 +154,20 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
+
+### Version 4
+
+Nic Basilio - [Github](https://github.com/bnbasilio)<br>
+Michelle Domingo - [Github](https://github.com/michedomingo)<br>
+Constance Millecan - [Github](https://github.com/cmillecan)<br>
+
+### Versions 1 - 3
+
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
-Nic Basilio - [Github](https://github.com/bnbasilio)
-Michelle Domingo - [Github](https://github.com/michedomingo)
-Constance Millecan - [Github](https://github.com/cmillecan)
+
 
 Second part of Airbnb: Joann Vuong
 ## License
