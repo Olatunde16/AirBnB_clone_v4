@@ -91,8 +91,6 @@ button:hover {
 }
 
 .popover ul h2{
-    margin-top: 1.5%;
-    margin-bottom: 5%;
     margin-left: 0px;
 }
 
@@ -112,4 +110,17 @@ button:hover {
 
 .popover ul li input{
     margin-right: 10px;
+}
+
+div.inputStates {
+    display: flex;
+    align-items: center;
+}
+
+.locations h4 {
+    overflow: hidden;
+    height: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
