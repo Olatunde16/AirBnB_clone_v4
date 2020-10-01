@@ -58,7 +58,7 @@ $(document).ready(function(){
   $.ajax({ 
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: 'post',
-    data: JSON.stringify({}),
+    data: JSON.stringify({amenities: Object.keys(amenitiesIds)}),
     headers: { "Content-Type": "application/json" },
     dataType: 'json',
     success: function (data) {
