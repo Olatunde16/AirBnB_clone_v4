@@ -158,8 +158,8 @@ Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twit
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang) <br>  
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10) <br>
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave) <br>
-Blake Stewart - [Github](https://github.com/Acochisse) / email: 1819@holbertonschool.com <br>
-Reese Hicks - [Github](https://github.com/dreeseh) / email: 1859@holbertonschool.com <br>
+Blake Stewart -- [Github](https://github.com/Acochisse) / email: 1819@holbertonschool.com <br>
+Reese Hicks -- [Github](https://github.com/dreeseh) / email: 1859@holbertonschool.com <br>
 
 Second part of Airbnb: Joann Vuong
 ## License
