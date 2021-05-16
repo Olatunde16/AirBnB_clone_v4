@@ -40,6 +40,11 @@ button:hover {
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
+
+	height: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .locations {
     height: 100%;
@@ -60,8 +65,8 @@ button:hover {
     padding-bottom: 15px;
     height: 300px;
     overflow-y: scroll;
-    scrollbar-width: none;
     max-height: 300px;
+	margin-top: 15px;
 }
 
 .popover::-webkit-scrollbar{
@@ -71,16 +76,12 @@ button:hover {
 .amenities .popover {
     padding: 10px 0;
     margin-left: -5px;
-    margin-top: 0%;
 }
 
 .amenities .popover ul{
     margin: 0px;
 }
 
-.locations .popover {
-    margin-top: 0%;
-}
 .popover ul {
     list-style-type: none;
     padding-bottom: 10px;
