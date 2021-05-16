@@ -13,11 +13,11 @@ header .logo {
 	min-width: 150px;
     height: 85%;
 }
-.available {
+header .available {
 	background-color: #ff545f
 }
 
-#api_status {
+header div {
 	width: 40px;
 	height: 40px;
 	background-color: #CCCCCC;
