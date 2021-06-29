@@ -101,3 +101,13 @@ button:hover {
 .locations:hover .popover {
     visibility: visible;
 }
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+.amenities h4{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 16px;
+}

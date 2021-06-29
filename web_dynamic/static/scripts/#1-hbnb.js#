@@ -1,0 +1,15 @@
+ change event handler to the checkboxes.
+$("input").click(function() {
+    $(":input").each(function() {
+        if (klick.checked===true) {
+	    amdict[$(klick).data('name')] = $(klick).data('id');
+        } else {
+            amdict[$(klick).data('name')].pop;
+	}
+    });
+    const arr = [];
+    for (const key in amdict) {
+	arr.push(key);
+    }
+    $(".amenities h4").html(arr.join(', '));
+});
