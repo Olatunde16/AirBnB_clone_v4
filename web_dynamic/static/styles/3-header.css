@@ -11,10 +11,13 @@ header .logo {
 }
 
 #api_status {
-    right: 30px;
-    background-color: #cccccc
-    height: 40px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    position: absolute;
     width: 40px;
+    height: 40px;
+    right: 30px;
+    top: 15px;
 }
 
 #api_status.available {
