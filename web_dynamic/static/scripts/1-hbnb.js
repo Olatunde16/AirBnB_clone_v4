@@ -1,19 +1,19 @@
-let selected = {};
-let listofAm = {};
-
+// script to deal with checkboxes on amentiy list
 $(document).ready(function () {
-    // We want a statement that declares if the box gets checked
-    // THEN, store the amenity ID in variable named checked
-    // Else, delete data in checked
-    // Will need to use $(this) a lot
-    $('input:checkbox').change(function () {
-	if ($(this).is(':selected')) {
-	    selected[$(this).data('id') = $(this).data('name');
-	} else {
-	    delete selected[$(this).data('id')];
-	}
-        $('DIV.amenities h4').html(function () {
-	    selected.pop($(this).attr('data-name'));
-	    listofAm.pop($(this).attr('data-id'));
-	}
+  let tmp_dic = {};
+  $('input').click(function () {
+    $(':input').each(function () {
+      if (this.checked === true) {
+        tmp_dic[$(this).data('name')] = $(this).data('id');
+      } else {
+        delete tmp_dic[$(this).data('name')];
+      }
+    });
+    let amen_lst = [];
+    for (const k in tmp_dic) {
+      amen_lst.push(k);
+    }
+  $('DIV.amenities h4').html(amen_lst.join(', '));
+  });
 });
+
