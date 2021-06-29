@@ -25,6 +25,14 @@
     opacity: 0.9;
 }
 
+.amenh4 {
+
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .filters .locations,.filters .amenities {
 
     height: 100%; 
@@ -45,11 +53,18 @@
     margin: 2px 20px;
 
 }
+
+.amenities h4{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 16px;
+}
+
 .locations h4,  .amenities h4{
     font-weight: 400;
-    font-size: 14px;
-    margin: 2px 20px;   
-    
+    font-size: 50px;
+    margin: 2px 20px;
 }
 .popover {
     display: none;
