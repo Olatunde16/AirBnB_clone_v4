@@ -161,7 +161,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 
 Second part of Airbnb: Joann Vuong
 
-Additional late stage authors: 
+Late process development team: 
 Ran Kong - [Github](https://github.com/rkbrian)
 Christopher Caswell - [Github](https://github.com/Christopher-Caswell)
 Derek Clemens - [Github](https://github.com/urwithinrange)
