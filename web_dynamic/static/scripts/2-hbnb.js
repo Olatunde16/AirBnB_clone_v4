@@ -23,7 +23,7 @@ $(document).ready(() => {
             delete checkedAmenities[clickedCheckbox.attr('data-id')]
         }
         // Uncomment next line to log checkedAmenities on every checkbox click:
-        console.log(checkedAmenities);
+        // console.log(checkedAmenities);
 
         // Get new text to go in 'DIV.amenities h4'
         // Object.values equivalent to python `for val in somedict.values()`
@@ -41,16 +41,16 @@ $(document).ready(() => {
     $('DIV.amenities input[type="checkbox"]').click(handleCheckAmenityClick);
 	// check status
     // Changed to use $.ajax
-	// $.ajax({
-    //     url: "http://0.0.0.0:5001/api/v1/status",
-    //     type: 'GET',
-    //     crossDomain: true,
-	// 	success: (data) => {
-    //         if (data['status'] && data['status'] == "OK") {
-	// 		    $("div#api_status").addClass("available");
-	//  	    } else {
-	// 		    $("div#api_status").removeClass("available"); 
-	// 	    }
-    //     }
-    // });
+	$.ajax({
+    		url: "http://0.0.0.0:5001/api/v1/status",
+    		type: 'GET',
+            crossDomain: true,
+	        success: (data) => {
+            if (data['status'] && data['status'] == "OK") {
+	        $("div#api_status").addClass("available");
+	        } else {
+		    $("div#api_status").removeClass("available"); 
+	 	    }
+        }
+    });
 });
