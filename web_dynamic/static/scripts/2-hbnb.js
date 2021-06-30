@@ -39,12 +39,18 @@ $(document).ready(() => {
     // Connect handleCheckAmenityClick to click events from all checkboxes
     // Logic in handleCheckAmenityClick takes care of the rest!
     $('DIV.amenities input[type="checkbox"]').click(handleCheckAmenityClick);
-	// check status 
-	$.get("http://0.0.0.0:5001/api/v1/status/").done((data) => {
-		if(data.status && data.status === "OK"){
-			$("div#api_status").addClass("active");
-	 	} else{
-			$("div#api_status").removeClass("active"); 
-		 }
-	});
+	// check status
+    // Changed to use $.ajax
+	// $.ajax({
+    //     url: "http://0.0.0.0:5001/api/v1/status",
+    //     type: 'GET',
+    //     crossDomain: true,
+	// 	success: (data) => {
+    //         if (data['status'] && data['status'] == "OK") {
+	// 		    $("div#api_status").addClass("available");
+	//  	    } else {
+	// 		    $("div#api_status").removeClass("available"); 
+	// 	    }
+    //     }
+    // });
 });
