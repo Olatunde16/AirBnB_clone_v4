@@ -1,46 +1,45 @@
 #!/usr/bin/python3
-"""
-Flask App that integrates with AirBnB static HTML Template
-"""
-from flask import Flask, render_template, url_for
+""" Starts a Flash Web Application """
 from models import storage
-import uuid;
-
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from os import environ
+from uuid import uuid4
+from flask import Flask, render_template
 app = Flask(__name__)
-app.url_map.strict_slashes = False
-port = 5000
-host = '0.0.0.0'
 
 
-#begin flask
 @app.teardown_appcontext
-def teardown_db(exception):
-    """
-    calls .close() on current session
-    """
+def close_db(error):
+    """ Remove the current SQLAlchemy Session """
     storage.close()
 
 
-@app.route('/2-hbnb')
-def hbnb_filters(the_id=None):
-    """
-    handles states, cities & amentities and template
-    """
-    state_objs = storage.all('State').values()
-    states = dict([state.name, state] for state in state_objs)
-    amens = storage.all('Amenity').values()
-    places = storage.all('Place').values()
-    users = dict([user.id, "{} {}".format(user.first_name, user.last_name)]
-                 for user in storage.all('User').values())
-    return render_template('2-hbnb.html',
-                           cache_id=uuid.uuid4(),
-                           states=states,
-                           amens=amens,
+@app.route('/2-hbnb', strict_slashes=False)
+def hbnb():
+    """ HBNB is alive! """
+    states = storage.all(State).values()
+    states = sorted(states, key=lambda k: k.name)
+    st_ct = []
+
+    for state in states:
+        st_ct.append([state, sorted(state.cities, key=lambda k: k.name)])
+
+    amenities = storage.all(Amenity).values()
+    amenities = sorted(amenities, key=lambda k: k.name)
+
+    places = storage.all(Place).values()
+    places = sorted(places, key=lambda k: k.name)
+
+    return render_template('1-hbnb.html',
+                           states=st_ct,
+                           amenities=amenities,
                            places=places,
-                           users=users)
+                           cache_id=str(uuid4()))
+
 
 if __name__ == "__main__":
-    """
-    main flask app
-    """
-    app.run(host=host, port=port)
+    """ Main Function """
+    app.run(host='0.0.0.0', port=5000)
