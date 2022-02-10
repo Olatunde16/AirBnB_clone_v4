@@ -7,6 +7,17 @@ window.onload = async function () {
   placesList();
 };
 
+async function apiAvailabe () {
+  $.get('http://172.24.177.23:5001/api/v1/status/', function (data, status) {
+    console.log(data);
+    if (data.status === 'OK') {
+      $('#api_status').addClass('available');
+    }
+  });
+}
+
+// states
+
 function selectAmenities () {
   $('div.amenities input[type=checkbox]').change(function () {
     const id = $(this).attr('data-id');
@@ -16,15 +27,6 @@ function selectAmenities () {
       delete listAmenities[id];
     }
     $('.amenities h4').text(Object.values(listAmenities).join(', '));
-  });
-}
-
-async function apiAvailabe () {
-  $.get('http://172.24.177.23:5001/api/v1/status/', function (data, status) {
-    console.log(data);
-    if (data.status === 'OK') {
-      $('#api_status').addClass('available');
-    }
   });
 }
 
@@ -116,12 +118,12 @@ function placeLayer (places) {
   `, '')
 }
 
-// owner place
 
 async function userName (place) {
   const response = await fetch('http://172.24.177.23:5001/api/v1/users/' + place.user_id);
   return (await response.json()).name
 }
+
 
 // amenities in place
 
