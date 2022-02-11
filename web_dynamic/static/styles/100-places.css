@@ -22,10 +22,11 @@ article {
 article>h2 {
     font-size: 30px;
     display: flex;
-    text-align: center;
+    text-align: left;
     flex-direction: column;
     margin: 0;
-    padding-bottom: 10%
+    padding-right: 80px;
+    padding-bottom: 10%;
 }
 
 .price_by_night {

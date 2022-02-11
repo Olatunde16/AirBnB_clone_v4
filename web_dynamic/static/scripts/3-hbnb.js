@@ -1,5 +1,6 @@
 const $ = window.jQuery;
 const listAmenities = {};
+const localhost = 'http://localhost:5001/api/v1/';
 window.onload = async function () {
   await amenitiesList();
   selectAmenities();
@@ -8,7 +9,7 @@ window.onload = async function () {
 };
 
 async function apiAvailabe () {
-  $.get('http://172.24.177.23:5001/api/v1/status/', function (data, status) {
+  $.get(localhost + 'status', function (data, status) {
     console.log(data);
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
@@ -16,7 +17,14 @@ async function apiAvailabe () {
   });
 }
 
-// states
+const users = {};
+$.getJSON(localhost + '/users', (data) => {
+  for (const el of data) {
+    users[el.id] = el.first_name + ' ' + el.last_name;
+  }
+});
+
+// amenities
 
 function selectAmenities () {
   $('div.amenities input[type=checkbox]').change(function () {
@@ -32,120 +40,74 @@ function selectAmenities () {
 
 async function amenitiesList () {
   try {
-      const response = await fetch('http://172.24.177.23:5001/api/v1/amenities');
-      const data = await response.json();
-      const aminitiesTemplate = amenitiesLayer(data);
-      $('.popover').html(aminitiesTemplate);
-  } catch(e) {
-      console.error(e);
+    const response = await fetch(localhost + 'amenities/');
+    const data = await response.json();
+    const aminitiesTemplate = amenitiesLayer(data);
+    $('.amenities .popover').html(aminitiesTemplate);
+  } catch (e) {
+    console.error(e);
   }
 }
 
-function amenitiesLayer(amenities) {
+function amenitiesLayer (amenities) {
   return amenities.reduce((acumulator, amenity) => `
   ${acumulator}
   <li><input type="checkbox" style="padding-left: 10px;" data-id="${amenity.id}" data-name="${amenity.name}">${amenity.name}</li>
   `, '');
 }
 
-// places
-
 async function placesList () {
   try {
-  const headersRequest = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({})
-  }
-  const response = await fetch('http://172.24.177.23:5001/api/v1/places_search/', headersRequest);
-  const data = await response.json();
-  placeLayer(data);
-  } catch(e) {
+    const headersRequest = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({})
+    };
+    const response = await fetch(localhost + 'places_search/', headersRequest);
+    const data = await response.json();
+    const placesTemplate = await placeLayer(data);
+    $('.container .places').html(placeTitle());
+    $('.container .places').html(placesTemplate);
+  } catch (e) {
     console.error(e);
   }
 }
 
+function placeTitle () {
+  const title = ['<h1>Places</h1>'];
+  return title.reduce((acumulator, one) => `
+  ${acumulator}
+  ${one}
+  `);
+}
+
 function placeLayer (places) {
-  console.log(places);
-  return places.reduce( async (acumulator, place) => `
+  return places.reduce((acumulator, place) => `
   ${acumulator}
   <article>
-      <h2>${ place.name }</h2>
+      <h2>${place.name}</h2>
       <div class="price_by_night">
-          ${place.price_by_night}
+          $ ${place.price_by_night}
       </div>
       <div class="information">
           <div class="max_guest">
-              ${place.max_guest}
+              ${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}
           </div>
           <div class="number_rooms">
-              ${place.number_rooms}
+              ${place.number_rooms} Room${place.number_rooms !== 1 ? 's' : ''}
           </div>
           <div class="number_bathrooms">
-              ${place.number_bathrooms}
+              ${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}
           </div>
       </div>
       <div class="user">
-          <b>Owner:</b> ${await userName(place)}
+          <b>Owner:</b> ${(users[place.user_id])}
       </div>
       <div class="description">
           <p>${place.description}</p>
       </div>
-
-      <div class="amenities">
-          <h2>Amenities</h2>
-          <ul>
-              ${amenitiesAvailables(await amenitiesFromPlace(place.id))}
-          </ul>
-          <div class=reviews>
-              <h2>2 Reviews</h2>
-              <ul>
-                  <li>
-                      ${reviewsForPlace(await reviewsFromPlace(place.id))}
-                      <h3>From Bob Dylan the 27th January 2017</h3>
-                      <p>Runshi is an epic host. Nothing more I can say. 5 star!</p>
-                  </li>
-                  <li>
-                      <h3>From Connor the 4th January 2017</h3>
-                      <p>Highly recommended!</p>
-                  </li>
-              </ul>
-          </div>
-      </div>
   </article>
-  `, '')
-}
-
-
-async function userName (place) {
-  const response = await fetch('http://172.24.177.23:5001/api/v1/users/' + place.user_id);
-  return (await response.json()).name
-}
-
-
-// amenities in place
-
-async function amenitiesFromPlace (placeId) {
-  const response = await fetch('http://172.24.177.23:5001/api/v1/places/' + placeId +'/amenities');
-  return (await response.json())
-}
-
-function amenitiesAvailables (amenities) {
-  return amenities.reduce((acumulator, amenity) => `
-  ${acumulator}
-  <li class="${amenity.name}">${amenity.name}</li>
   `, '');
-}
-
-// reviews in place
-
-async function reviewsFromPlace (placeId) {
-  const response = await fetch('http://172.24.177.23:5001/api/v1/places/' + placeId +'/reviews');
-  return (await response.json())
-}
-
-function reviewsForPlace (reviews) {
-  return reviews.reduce((acumulator, review) => console.log(review));
 }
