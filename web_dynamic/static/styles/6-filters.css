@@ -50,6 +50,12 @@ button:hover {
     height: 100%;
     width: 25%;
 }
+.amenities h4 {
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
+  overflow-y: clip;
+}
 
 .popover {
     visibility: hidden;
