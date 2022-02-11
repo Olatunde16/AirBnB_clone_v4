@@ -48,8 +48,10 @@
 .locations h4,  .amenities h4{
     font-weight: 400;
     font-size: 14px;
-    margin: 2px 20px;   
-    
+    margin: 2px 20px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
 .popover {
     display: none;
@@ -66,6 +68,8 @@
 div:hover > .popover {
     display: block;
     cursor: pointer;
+    height: 300px;
+    overflow: auto;
     
   }
 .popover h2 {
@@ -87,6 +91,4 @@ div:hover > .popover {
 .filters .amenities ul {
     padding: 2em 0 2em 3em;
   }
-
-
   
