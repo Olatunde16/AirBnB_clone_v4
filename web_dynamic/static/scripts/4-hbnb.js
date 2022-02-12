@@ -1,6 +1,6 @@
 const $ = window.jQuery;
 const listAmenities = {};
-const localhost = 'http://35.196.129.80:5001/api/v1/';
+const localhost = 'http://localhost:5001/api/v1/';
 window.onload = async function () {
   await statesList();
   await amenitiesList();
