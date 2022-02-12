@@ -2,6 +2,7 @@ const $ = window.jQuery;
 const listAmenities = {};
 const localhost = 'http://35.196.129.80:5001/api/v1/';
 window.onload = async function () {
+  await statesList();
   await amenitiesList();
   selectAmenities();
   apiAvailabe();
@@ -24,7 +25,7 @@ $.getJSON(localhost + '/users', (data) => {
   }
 });
 
-// amenities
+// amenities selected on checked box 
 
 function selectAmenities () {
   $('div.amenities input[type=checkbox]').change(function () {
@@ -108,5 +109,35 @@ function placeLayer (places) {
           <p>${place.description}</p>
       </div>
   </article>
+  `, '');
+}
+
+function selectAmenitiesCkecked () {
+  $('div.locations input[type=checkbox]').change(function () {
+    const id = $(this).attr('data-id');
+    if ($(this).is(':checked')) {
+      listAmenities[id] = $(this).attr('data-name');
+    } else {
+      delete listAmenities[id];
+    }
+    $('.amenities h4').text(Object.values(listAmenities).join(', '));
+  });
+}
+
+async function statesList () {
+  try {
+    const response = await fetch(localhost + 'states/');
+    const data = await response.json();
+    const statesTemplate = stateLayer(data);
+    $('.locations .popover').html(statesTemplate);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function stateLayer (states) {
+  return states.reduce((acumulator, state) => `
+  ${acumulator}
+  <li><h2>${state.name}</h2></li>
   `, '');
 }
