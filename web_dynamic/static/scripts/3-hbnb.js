@@ -68,8 +68,7 @@ async function placesList () {
     const response = await fetch(localhost + 'places_search/', headersRequest);
     const data = await response.json();
     const placesTemplate = await placeLayer(data);
-    $('.container .places').html(placeTitle());
-    $('.container .places').html(placesTemplate);
+    $('.container .places').html('<h1>Places</h1>' + placesTemplate);
   } catch (e) {
     console.error(e);
   }
