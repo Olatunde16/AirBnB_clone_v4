@@ -13,8 +13,10 @@ $(function () {
     } else {
       $('.amenities > h4').html('&nbsp;');
     }
+    console.log(AmenitiesChecked);
   });
-  $.getJSON('http://0.0.0.0:5001/api/v1/status/', (data) => {
+  $.getJSON(`http://${window.location.hostname}:5001/api/v1/status`, (data) => {
+
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
     } else {
@@ -22,18 +24,20 @@ $(function () {
     }
   });
   const users = {};
-  $.getJSON('http://172.23.179.134:5001/api/v1/users', (data) => {
+  $.getJSON(`http://${window.location.hostname}:5001/api/v1/users`, (data) => {
     for (const usr of data) {
       users[usr.id] = usr.first_name + ' ' + usr.last_name;
       console.log(users);
     }
   });
   $.ajax({
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: 'POST',
     data: JSON.stringify({}),
-    ContentType: 'application/json',
+    url: `http://${window.location.hostname}:5001/api/v1/places_search`,
+    contentType: 'application/json',
     success: data => {
+      console.log("I AM DATA");
+      console.log(data);
       for (const place of data) {
         const template = `<article>
       <div class="title">
@@ -68,8 +72,58 @@ $(function () {
         ${place.description}
       </div>
     </article> <!-- End 1 PLACE Article -->`;
-        $('section.places').append(template);
+        $('.places').append(template);
       }
     }
   });
+
+  // const GetPlaces = async () => {
+  //   // makes a request to the api to get the places
+  //   const url = `http://${window.location.hostname}:5001/api/v1/places_search`;
+  //   const places = await $.ajax({
+  //     type: 'post',
+  //     url: url,
+  //     data: '{}',
+  //     datatype: 'json',
+  //     contenttype: 'application/json'
+  //   });
+  //   return places;
+  // };
+  // const drawplaces = async () => {
+  //   // print places in the html tag
+  //   const places = await GetPlaces();
+  //   let toprint = '';
+  //   places.map((place, _) => {
+  //     toprint += 
+  //     `<article>
+  //       <h2>${place.name}</h2>
+  //       <div class = 'price_by_night'>
+  //         <p>$${place.price_by_night}</p>
+  //       </div>
+  //       <div class='information'>
+  //         <div class='max_guest'>
+  //           <div class='guest_image'>
+  //           </div>
+  //           <p>${place.max_guest}</p>
+  //         </div>
+  //         <div class='number_rooms'>
+  //           <div class='bed_image'></div>
+  //           <p>${place.number_rooms}</p>
+  //         </div>
+  //         <div class='number_bathrooms'>
+  //           <div class='bath_image'></div>
+  //           <p>${place.number_bathrooms}</p>
+  //         </div>
+  //       </div>
+  //       <div class='description'>
+  //         <p>${place.description}</p>
+  //       </div>
+  //     </article>`
+  //     ;
+  //     return 1;
+  //   });
+  //   $('.places').html(toprint);
+  // };
+  // drawplaces();
 });
+

@@ -29,10 +29,10 @@ $(function () {
     }
   });
   $.ajax({
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    url: `http://${window.location.hostname}:5001/api/v1/places_search`,
     type: 'POST',
     data: JSON.stringify(AmenitiesChecked),
-    ContentType: 'application/json',
+    contentType: 'application/json',
     success: data => {
       for (const place of data) {
         const template = `<article>
@@ -75,10 +75,10 @@ $(function () {
   $(':button').click(function () {
     $('.places > article').remove();
     $.ajax({
-      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      url: `http://${window.location.hostname}:5001/api/v1/places_search`,
       type: 'POST',
       data: JSON.stringify({ amenities: Object.keys(AmenitiesChecked) }),
-      ContentType: 'application/json',
+      contentType: 'application/json',
       success: data => {
         for (const place of data) {
           const template = `<article>
