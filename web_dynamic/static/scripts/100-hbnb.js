@@ -1,5 +1,7 @@
 $(function () {
   const AmenitiesChecked = {};
+  const StatesChecked = {};
+  const LocationsChecked = {};
   $(document).on('change', ".amenities > .popover > li > input[type='checkbox']", function () {
     if (this.checked) {
       AmenitiesChecked[$(this).data('id')] = $(this).data('name');
@@ -9,9 +11,24 @@ $(function () {
     const Objs = Object.values(AmenitiesChecked);
     console.log(Object.values(AmenitiesChecked));
     if (Objs) {
-      $('.amenities > h4').text(Object.values(AmenitiesChecked).join(', '));
+      $('.amenities > h4').text(Objs.join(', '));
     } else {
       $('.amenities > h4').html('&nbsp;');
+    }
+  });
+  $(document).on('change', ".locations > .popover > li > input[type='checkbox']", function () {
+    if (this.checked) {
+      StatesChecked[$(this).data('id')] = $(this).data('name');
+      LocationsChecked[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete StatesChecked[$(this).data('id')];
+      delete LocationsChecked[$(this).data('id')];
+    }
+    let Objs = Object.values(LocationsChecked);
+    if (Objs.length > 0) {
+      $('div.locations > h4').text(Objs.join(', '));
+    } else {
+      $('div.locations > h4').html('&nbsp;');
     }
   });
   $.getJSON('http://0.0.0.0:5001/api/v1/status/', (data) => {
