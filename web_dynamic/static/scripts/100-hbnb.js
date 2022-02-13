@@ -2,6 +2,7 @@ $(function () {
   const AmenitiesChecked = {};
   const StatesChecked = {};
   const LocationsChecked = {};
+  const CitiesChecked = {};
   $(document).on('change', ".amenities > .popover > li > input[type='checkbox']", function () {
     if (this.checked) {
       AmenitiesChecked[$(this).data('id')] = $(this).data('name');
@@ -22,6 +23,21 @@ $(function () {
       LocationsChecked[$(this).data('id')] = $(this).data('name');
     } else {
       delete StatesChecked[$(this).data('id')];
+      delete LocationsChecked[$(this).data('id')];
+    }
+    let Objs = Object.values(LocationsChecked);
+    if (Objs.length > 0) {
+      $('div.locations > h4').text(Objs.join(', '));
+    } else {
+      $('div.locations > h4').html('&nbsp;');
+    }
+  });
+  $(document).on('change', ".locations > .popover > li > ul > li > input[type='checkbox']", function () {
+    if (this.checked) {
+      CitiesChecked[$(this).data('id')] = $(this).data('name');
+      LocationsChecked[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete CitiesChecked[$(this).data('id')];
       delete LocationsChecked[$(this).data('id')];
     }
     let Objs = Object.values(LocationsChecked);
