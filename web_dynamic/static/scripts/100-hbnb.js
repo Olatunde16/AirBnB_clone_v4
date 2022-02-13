@@ -26,7 +26,7 @@ $(function () {
       delete LocationsChecked[$(this).data('id')];
     }
     let Objs = Object.values(LocationsChecked);
-    if (Objs.length > 0) {
+    if (Objs) {
       $('div.locations > h4').text(Objs.join(', '));
     } else {
       $('div.locations > h4').html('&nbsp;');
@@ -41,7 +41,7 @@ $(function () {
       delete LocationsChecked[$(this).data('id')];
     }
     let Objs = Object.values(LocationsChecked);
-    if (Objs.length > 0) {
+    if (Objs) {
       $('div.locations > h4').text(Objs.join(', '));
     } else {
       $('div.locations > h4').html('&nbsp;');
