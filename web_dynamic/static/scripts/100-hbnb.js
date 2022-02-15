@@ -66,7 +66,7 @@ $(function () {
   $.ajax({
     url: `http://${window.location.hostname}:5001/api/v1/places_search`,
     type: 'POST',
-    data: JSON.stringify(AmenitiesChecked),
+    data: '{}',
     contentType: 'application/json',
     success: data => {
       for (const place of data) {
