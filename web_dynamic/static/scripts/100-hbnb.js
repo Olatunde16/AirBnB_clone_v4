@@ -3,7 +3,7 @@ $(function () {
   const StatesChecked = {};
   const LocationsChecked = {};
   const CitiesChecked = {};
-  $(document).on('change', ".amenities > .popover > li > input[type='checkbox']", function () {
+  $(document).on('change', ".amenities > .popover > ul > li > input[type='checkbox']", function () {
     if (this.checked) {
       AmenitiesChecked[$(this).data('id')] = $(this).data('name');
     } else {
@@ -17,7 +17,7 @@ $(function () {
       $('.amenities > h4').html('&nbsp;');
     }
   });
-  $(document).on('change', ".locations > .popover > li > input[type='checkbox']", function () {
+  $(document).on('change', ".locations > .popover > ul > li > input[type='checkbox']", function () {
     if (this.checked) {
       StatesChecked[$(this).data('id')] = $(this).data('name');
       LocationsChecked[$(this).data('id')] = $(this).data('name');
@@ -25,14 +25,15 @@ $(function () {
       delete StatesChecked[$(this).data('id')];
       delete LocationsChecked[$(this).data('id')];
     }
-    let Objs = Object.values(LocationsChecked);
+    const Objs = Object.values(LocationsChecked);
+    console.log(Object.values(LocationsChecked));
     if (Objs) {
       $('div.locations > h4').text(Objs.join(', '));
     } else {
       $('div.locations > h4').html('&nbsp;');
     }
   });
-  $(document).on('change', ".locations > .popover > li > ul > li > input[type='checkbox']", function () {
+  $(document).on('change', ".locations > .popover > ul > li > ul > li > input[type='checkbox']", function () {
     if (this.checked) {
       CitiesChecked[$(this).data('id')] = $(this).data('name');
       LocationsChecked[$(this).data('id')] = $(this).data('name');
@@ -40,7 +41,8 @@ $(function () {
       delete CitiesChecked[$(this).data('id')];
       delete LocationsChecked[$(this).data('id')];
     }
-    let Objs = Object.values(LocationsChecked);
+    const Objs = Object.values(LocationsChecked);
+    console.log(Object.values(LocationsChecked));
     if (Objs) {
       $('div.locations > h4').text(Objs.join(', '));
     } else {
@@ -110,7 +112,7 @@ $(function () {
     $.ajax({
       url: `http://${window.location.hostname}:5001/api/v1/places_search`,
       type: 'POST',
-      data: JSON.stringify({ amenities: Object.keys(AmenitiesChecked) }),
+      data: JSON.stringify({ amenities: Object.keys(AmenitiesChecked), 'states': Object.keys(StatesChecked), 'cities': Object.keys(CitiesChecked) }),
       contentType: 'application/json',
       success: data => {
         for (const place of data) {
