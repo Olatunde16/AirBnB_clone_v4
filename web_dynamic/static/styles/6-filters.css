@@ -96,6 +96,12 @@ button:hover {
     flex-wrap: wrap;
 }
 
+.locations .popover > ul> li > ul {
+    /* padding-left: 20px; */
+    flex: 0 1 100%;
+    /* margin-top: 5px; */
+}
+
 .filters li > input {
     margin-right: 10px;
 }
