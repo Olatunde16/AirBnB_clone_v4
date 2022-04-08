@@ -159,7 +159,7 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 Jeffrey Winikoff - [Github](https://github.com/jswini) / [Email](2677@holbertonschool.com)
-
+Monty Williams - [Github](https://github.com/MontyWilliams) [Twitter](https://twitter.com/63MontyWilliams)
 Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection.
