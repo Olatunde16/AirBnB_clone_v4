@@ -6,7 +6,7 @@ $(document).ready(function () {
     } else {
       delete checkedAmenities[$(this).data("id")];
     }
-    const amenities = Object.keys(checkedAmenities);
-    $("div.amenities > h4").text(amenities.sort().join(", "));
+    const amenities = Object.values(checkedAmenities);
+    $("div.amenities > h4").text(amenities.join(", "));
   });
 });
