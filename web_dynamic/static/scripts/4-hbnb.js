@@ -20,7 +20,7 @@ $.get(url_status, function (response) {
   }
 });
 
-$(".filters button").click(function () {
+$("button").click(function () {
   $.ajax({
     url: "http://0.0.0.0:5001/api/v1/places_search/",
     dataType: "json",
@@ -28,8 +28,7 @@ $(".filters button").click(function () {
     contentType: "application/json",
     data: JSON.stringify({ amenities: Object.values(checkedAmenities) }),
     success: function (response) {
-      $("section.places").empty();
-      $("section.places").append("<h1>Places</h1>");
+      $(".places").append("<h1>Places</h1>");
       for (const place of response) {
         const article = [
           "<article>",
@@ -47,7 +46,7 @@ $(".filters button").click(function () {
           "</div>",
           "</article>",
         ];
-        $("section.places").append(article);
+        $(".places").append(article);
       }
     },
   });
