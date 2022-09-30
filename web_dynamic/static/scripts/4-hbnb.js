@@ -18,7 +18,19 @@ $.get(url_status, function(response){
     } else {
         $('#api_status').removeClass('available')
     }
-})
+}); 
+
+$('.filters button').click(function () {
+    $.ajax({
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      dataType: 'json',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ amenities: Object.values(checkedAmenities) }),
+      success: function (respose) {
+        
+      }
+   
 
 
 
