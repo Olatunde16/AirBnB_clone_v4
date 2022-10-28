@@ -51,6 +51,14 @@ button:hover {
     width: 25%;
 }
 
+.amenities h4 {
+    width: 70%;
+    height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .popover {
     visibility: hidden;
     width: 100%;
@@ -89,6 +97,10 @@ button:hover {
 .popover ul li{
     padding: 4px;
     padding-left: 10px;
+}
+
+.popover ul li input {
+    margin-right: 10px
 }
 
 .popover ul h2{
