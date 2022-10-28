@@ -8,8 +8,8 @@ $('document').ready(function () {
       } else {
         delete amenityChecked[$(amenityCheckboxArray[i]).attr('data-id')];
       }
-      let list = [];
-      for (let id in amenityChecked) {
+      const list = [];
+      for (const id in amenityChecked) {
         list.push(amenityChecked[id]);
       }
       list.sort();
