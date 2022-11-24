@@ -1,9 +1,8 @@
-#!/usr/bin/python
-""" holds class Review"""
+#!/usr/bin/python3
+""" Holds class Review"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
-import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey
 
 
@@ -20,5 +19,5 @@ class Review(BaseModel, Base):
         text = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes Review"""
+        """Initializes Review"""
         super().__init__(*args, **kwargs)

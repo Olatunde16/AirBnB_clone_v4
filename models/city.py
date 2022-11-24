@@ -1,5 +1,5 @@
-#!/usr/bin/python
-""" holds class City"""
+#!/usr/bin/python3
+""" Holds class City"""
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
@@ -22,5 +22,5 @@ class City(BaseModel, Base):
         name = ""
 
     def __init__(self, *args, **kwargs):
-        """initializes city"""
+        """Initializes city"""
         super().__init__(*args, **kwargs)
