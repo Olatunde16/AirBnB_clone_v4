@@ -5,8 +5,8 @@ VENV='./env/*'
 if [ ! "$(command -v autopep8)" ]
 then
     echo "Missing package, start installing autopep8..."
-    sudo apt-get update -y > /dev/null 2>&1 &&\
-    sudo apt-get install autopep8 -y > /dev/null 2>&1
+    sudo pip install pip --upgrade > /dev/null 2>&1 &&\
+    sudo pip install autopep8 > /dev/null 2>&1
 fi
 
 echo "Running autopep..."

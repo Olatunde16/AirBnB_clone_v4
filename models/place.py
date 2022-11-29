@@ -42,7 +42,7 @@ class Place(BaseModel, Base):
         city_id = ""
         user_id = ""
         name = ""
-        description = ""
+        # description = ""
         number_rooms = 0
         number_bathrooms = 0
         max_guest = 0

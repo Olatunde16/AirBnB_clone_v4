@@ -20,7 +20,7 @@ classes = {"Amenity": Amenity, "City": City,
 
 
 class DBStorage:
-    """Interaacts with the MySQL database"""
+    """Interacts with the MySQL database"""
     __engine = None
     __session = None
 
@@ -31,7 +31,7 @@ class DBStorage:
         HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
         HBNB_MYSQL_DB = getenv('HBNB_MYSQL_DB')
         HBNB_ENV = getenv('HBNB_ENV')
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}:3306/{}'.
                                       format(HBNB_MYSQL_USER,
                                              HBNB_MYSQL_PWD,
                                              HBNB_MYSQL_HOST,
@@ -98,8 +98,8 @@ class DBStorage:
         if not cls:
             count = 0
             for clas in all_class:
-                count += len(models.storage.all(clas).values())
+                count += len(models.storage.all(clas).keys())
         else:
-            count = len(models.storage.all(cls).values())
+            count = len(models.storage.all(cls).keys())
 
         return count
