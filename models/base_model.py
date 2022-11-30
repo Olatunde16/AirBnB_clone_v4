@@ -6,7 +6,6 @@ Contains class BaseModel
 from datetime import datetime
 import models
 from os import getenv
-import sqlalchemy
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
@@ -28,24 +27,20 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.utcnow()
+        self.updated_at = self.created_at
         if kwargs:
             for key, value in kwargs.items():
-                if key != "__class__":
+                if key != "__class__" and key != "created_at" \
+                        and key != "updated_at":
                     setattr(self, key, value)
-            if kwargs.get("created_at", None) and type(self.created_at) is str:
+            if kwargs.get("created_at", None) and isinstance(
+                    self.created_at, str):
                 self.created_at = datetime.strptime(kwargs["created_at"], time)
-            else:
-                self.created_at = datetime.utcnow()
-            if kwargs.get("updated_at", None) and type(self.updated_at) is str:
+            if kwargs.get("updated_at", None) and isinstance(
+                    self.updated_at, str):
                 self.updated_at = datetime.strptime(kwargs["updated_at"], time)
-            else:
-                self.updated_at = datetime.utcnow()
-            if kwargs.get("id", None) is None:
-                self.id = str(uuid.uuid4())
-        else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.utcnow()
-            self.updated_at = self.created_at
 
     def __str__(self):
         """String representation of the BaseModel class"""
@@ -53,13 +48,13 @@ class BaseModel:
                                          self.__dict__)
 
     def save(self):
-        """updates the attribute 'updated_at' with the current datetime"""
+        """Updates the attribute 'updated_at' with the current datetime"""
         self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
     def to_dict(self, save_fs=None):
-        """returns a dictionary containing all keys/values of the instance"""
+        """Returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
             new_dict["created_at"] = new_dict["created_at"].strftime(time)
@@ -74,5 +69,5 @@ class BaseModel:
         return new_dict
 
     def delete(self):
-        """delete the current instance from the storage"""
+        """Delete the current instance from the storage"""
         models.storage.delete(self)
