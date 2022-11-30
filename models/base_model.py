@@ -32,7 +32,8 @@ class BaseModel:
         self.updated_at = self.created_at
         if kwargs:
             for key, value in kwargs.items():
-                if key != "__class__" and key != "created_at" and key != "updated_at":
+                if key != "__class__" and key != "created_at" \
+                        and key != "updated_at":
                     setattr(self, key, value)
             if kwargs.get("created_at", None) and isinstance(
                     self.created_at, str):
