@@ -1,5 +1,7 @@
-# AirBnB Clone - The Console
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+# AirBnB Clone - Web Dynamic
+This is the final and greatest iteration of the AirBnB clone project during the second trimester at Holberton School - Tulsa. This builds on version 3 by creating a dynamic webpage using JavaScript and JQuery.
+
+The first segment of the AirBnB project at Holberton School developed the console, which is the technical side that most of this README will cover.
 
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
@@ -22,7 +24,7 @@ The console is the first segment of the AirBnB project at Holberton School that 
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
 ## Installation
-* Clone this repository: `git clone "https://github.com/alexaorrico/AirBnB_clone.git"`
+* Clone this repository: `git clone "https://github.com/bsbanotto/holbertonschool-AirBnB_clone_v4.git"`
 * Access AirBnb directory: `cd AirBnB_clone`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
@@ -160,5 +162,10 @@ Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 
 Second part of Airbnb: Joann Vuong
+
+Fourth part of AirBnB:
+Sarah Mcgowan - [Github](https://github.com/GoldLion1011)
+Ben Sbanotto - [Github](https://github.com/bsbanotto)
+
 ## License
 Public Domain. No copy write protection. 
