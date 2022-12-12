@@ -101,3 +101,12 @@ button:hover {
 .locations:hover .popover {
     visibility: visible;
 }
+
+.amenities h4 {
+    width: 130%;
+    min-height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 12px;
+    text-overflow: ellipsis;
+}
