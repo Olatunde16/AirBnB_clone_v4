@@ -1,4 +1,4 @@
-$(document).ready(() => {
+(document).ready(() => {
   const mydict = {};
   $('input[type="checkbox"]').change(function () {
     if (this.checked) {
