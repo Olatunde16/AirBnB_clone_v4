@@ -170,7 +170,7 @@ Integration of JavaScript into AirBnB clone project.
 ## Authors
 
 * Ntobeko Sithole - [Github](https://github.com/j88moja-code)
-* Noma Mathebula - [Github]()
+* Nomathamsanqa Mathebula - [Github](https://github.com/NomatheLuckyOne)
 
 ## License
 Public Domain. No copy write protection. 
