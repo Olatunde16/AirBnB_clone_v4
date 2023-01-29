@@ -19,6 +19,7 @@ def do_pack():
         local("tar -cvzf {} web_static".format(file_name))
         return file_name
     except:
+<<<<<<< HEAD
         return None#!/usr/bin/python3
 """
 Fabric script that generates a tgz archive from the contents of the web_static
@@ -40,4 +41,6 @@ def do_pack():
         local("tar -cvzf {} web_static".format(file_name))
         return file_name
     except:
+=======
+>>>>>>> b62ec62c6c72924dac6962b869fa38e1317ca7e5
         return None
