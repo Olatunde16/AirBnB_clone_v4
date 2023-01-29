@@ -182,9 +182,10 @@ Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twit
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
-Robel Pop - [Github](https://github.com/robelandro)
-Kefyalew Biru Flatie - [Github](https://github.com/Kefie88)
+Robel Pop - [Github](https://github.com/robelandro)  
+Kefyalew Biru Flatie - [Github](https://github.com/Kefie88)  
 Second part of Airbnb: Joann Vuong
+third part of Airbnb: Kefyalew Biru Flatie and Robel Pop
 
 ## License
 
