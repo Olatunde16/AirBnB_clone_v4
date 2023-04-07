@@ -8,7 +8,6 @@ from fabric.api import put, run, env
 from os.path import exists
 env.hosts = ['...', '...']
 
-
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
     if exists(archive_path) is False:
