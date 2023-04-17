@@ -162,6 +162,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 ## Additonal Authors: 
   Mico Bledsoe - [Github](https://github.com/MicoBledsoe) <br>
   Teylor Chapman - [Github](https://github.com/TeylorChapman)
+ 
 Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
