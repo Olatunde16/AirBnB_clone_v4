@@ -6,8 +6,8 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #CCCCCC;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 header .logo {
     background: url("../images/logo.png") no-repeat;
