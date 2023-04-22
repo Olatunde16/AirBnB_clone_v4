@@ -159,6 +159,7 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 Izzeddin Serge Ishimwe - [Github](https://github.com/izzeddin62)
+Rosemond Asilga - [Github](https://github.com/rosemondasilga)
 
 Second part of Airbnb: Joann Vuong
 ## License
