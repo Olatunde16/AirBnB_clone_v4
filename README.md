@@ -162,7 +162,7 @@ David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twit
 ### Second part of Airbnb:
 Joann Vuong
 
-### 4th part of Airbnb:
+### 4th part of Airbnb:s
 Melissa Arroyo - [GitHub](https://github.com/MelissaAT)
 Gabriel Fernandez - [GitHub](https://github.com/GABETROLL)
 ## License
