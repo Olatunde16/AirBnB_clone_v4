@@ -13,22 +13,16 @@ $('document').ready(function () {
           },
           error: function(xhr, status, error) {
             // Handle the error and perform an alternative action
-            if (xhr.status === 0) {
-              if ($('DIV#api_status').hasClass('available')) {
+            if ($('DIV#api_status').hasClass('available')) {
                 $('DIV#api_status').removeClass('available');
-              }
-              // Perform some alternative action here, such as showing an error message to the user
-            } else if ($('DIV#api_status').hasClass('available')) {
-              $('DIV#api_status').removeClass('available');
-            }
-          }
+          }}
         });
-      }
+    }
       
     status();
 
     setInterval(status, 0.2 * 60 * 1000);
-    setInterval(console.clear, 0.2 * 60 * 1000);
+    setInterval(console.clear, 0.3 * 60 * 1000);
 
     const firstLoad = () => {
         $.ajax({
