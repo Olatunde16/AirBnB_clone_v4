@@ -22,7 +22,7 @@ $('document').ready(function () {
     status();
 
     setInterval(status, 0.2 * 60 * 1000);
-    setInterval(console.clear, 0.3 * 60 * 1000);
+    // setInterval(console.clear, 0.3 * 60 * 1000);
 
     const loadAllPlaces = () => {
         $.ajax({
@@ -76,7 +76,20 @@ $('document').ready(function () {
 
 })
 
-function appendPlaces (data) {
+const getUser = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:5001/api/v1//users/${id}`);
+        const data = await response.json();
+
+        console.log(data.first_name + ' ' + data.last_name)
+
+        return data.first_name + ' ' + data.last_name;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function appendPlaces (data) {
   $('SECTION.places').empty();
   $('SECTION.places').append(data.map(place => {
     return `<ARTICLE>
@@ -98,6 +111,8 @@ function appendPlaces (data) {
                   </DIV>
                 </DIV>
                 <DIV class="description">
+                <DIV><B>Owner: ${getUser(place.user_id)}</B></DIV>
+                </BR>
                   ${place.description}
                 </DIV>
               </ARTICLE>`;
