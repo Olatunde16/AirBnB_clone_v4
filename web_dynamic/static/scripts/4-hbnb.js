@@ -24,7 +24,7 @@ $('document').ready(function () {
     setInterval(status, 0.2 * 60 * 1000);
     setInterval(console.clear, 0.3 * 60 * 1000);
 
-    const firstLoad = () => {
+    const loadAllPlaces = () => {
         $.ajax({
             url: 'http://localhost:5001/api/v1/places_search/',
             type: 'POST',
@@ -44,7 +44,7 @@ $('document').ready(function () {
         });
     }
 
-    firstLoad()
+    loadAllPlaces()
 
     let amenities = {};
     $('INPUT[type="checkbox"]').change(function () {
@@ -71,7 +71,7 @@ $('document').ready(function () {
     })})
 
     $('#placesh1').click(() => {
-        firstLoad()
+        loadAllPlaces()
     })
 
 })

@@ -99,3 +99,8 @@
 .user {
   margin-bottom: 1.5%;
 }
+
+#placesh1 {
+    background-color: transparent;
+    border: none;
+}
