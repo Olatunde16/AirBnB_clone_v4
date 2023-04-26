@@ -5,7 +5,11 @@ $(document).ready(function() {
         {
             url: 'http://0.0.0.0:5001/api/v1/status/',
             success: function (data) {
-                $('#api_status').toggle('available', data.status === 'OK');
+                console.log("API CHECK")
+                if (data.status === 'OK') {
+                    console.log("available")
+                    $('#api_status').toggleClass('unavailable available');
+                } 
             }
         }
     );
