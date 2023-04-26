@@ -46,8 +46,9 @@ $('document').ready(function () {
 
     loadAllPlaces()
 
+    // Filters
     let amenities = {};
-    $('INPUT[type="checkbox"]').change(function () {
+    $('INPUT[type="checkbox"].amenityCheckBox').change(function () {
       if ($(this).is(':checked')) {
         amenities[$(this).attr('data-id')] = $(this).attr('data-name');
       } else {
@@ -60,34 +61,42 @@ $('document').ready(function () {
       }
     });
 
+    let state = {};
+    $('INPUT[type="checkbox"].stateCheckBox').change(function () {
+      if ($(this).is(':checked')) {
+        state[$(this).attr('data-id')] = $(this).attr('data-name');
+      } else {
+        delete state[$(this).attr('data-id')];
+      }
+      $('.locations H4').text(Object.values(state).join(', '));
+    });
+
+    let city = {};
+    $('INPUT[type="checkbox"].cityCheckBox').change(function () {
+      if ($(this).is(':checked')) {
+        city[$(this).attr('data-id')] = $(this).attr('data-name');
+      } else {
+        delete city[$(this).attr('data-id')];
+      }
+      $('.locations H4').text(Object.values(city).join(', '));
+    });
+
     $('#button_id').click(() => {
         $.ajax({
             url: 'http://localhost:5001/api/v1/places_search/',
             type: 'POST',
-            data: JSON.stringify({ 'amenities': Object.keys(amenities) }),
+            data: JSON.stringify({ 'cities': Object.keys(city) , 'amenities': Object.keys(amenities), 'states': Object.keys(state)}),
             contentType: 'application/json',
             dataType: 'json',
             success: appendPlaces
     })})
 
+    // Event
     $('#placesh1').click(() => {
         loadAllPlaces()
     })
 
 })
-
-const getUser = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:5001/api/v1//users/${id}`);
-        const data = await response.json();
-
-        console.log(data.first_name + ' ' + data.last_name)
-
-        return data.first_name + ' ' + data.last_name;
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
 function appendPlaces (data) {
   $('SECTION.places').empty();
@@ -112,6 +121,7 @@ function appendPlaces (data) {
                 </DIV>
                 <DIV class="description">
                 <DIV><B>Owner: </B> ${place.user.first_name} ${place.user.last_name}</DIV>
+                <DIV><B>City: </B> ${place.city.name}</DIV>
                 </BR>
                   ${place.description}
                 </DIV>

@@ -49,6 +49,7 @@
     max-width: 75%;
     word-wrap: break-word;
 }
+
 .price_by_night {
     display: flex;
     height: 60px;
