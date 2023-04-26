@@ -1,23 +1,19 @@
 #!/usr/bin/node
 
-let amenitiesChecked = [];
+$(document).ready(function() {
+    const selectedAmenities = {};
 
-function appendAmenity(amenity) {
-    amenitiesChecked.push(amenity);
-}
+    $('input[type="checkbox"]').change(function() {
+        const amenityId = $(this).data('id');
+        const amenityName = $(this).data('name');
 
-$(document).ready(
-    function () {
-        /*
-        makes jquery listen for change in all
-        the amenity checkboxes,
-        and to append the amenity
-        to 'amenitiesChecked'
-        when they are checked.
-        */
-        amenitiesCheckboxes = $('.amenities .popover').children('li input:checkbox');
-        for (const amenityCheckbox of amenitiesCheckboxes) {
-            amenityCheckbox.change(appendAmenity);
+        if (this.checked) {
+            selectedAmenities[amenityId] = amenityName;
+        } else {
+            delete selectedAmenities[amenityId];
         }
-    }
-);
+
+        const amenitiesList = Object.values(selectedAmenities).join(', ');
+        $('.amenities h4').text(amenitiesList);
+    });
+});
