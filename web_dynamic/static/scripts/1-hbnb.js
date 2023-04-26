@@ -18,6 +18,6 @@ $(document).ready(function () {
 
     // Update the h4 tag with the chosen amenities.
     const amenityNames = Object.values(selectedAmenities);
-    $('.amenities h4').text(amenityNames.join(', '));
+    $('.amenities h4').text(amenityNames.join(', ') || '\u00A0');
   });
 });
