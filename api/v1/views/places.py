@@ -193,7 +193,6 @@ def places_search():
         place_dict.pop('user_id')
         place_dict.pop('city_id')
         d = place_dict
-        d.pop('amenities', None)
         places.append(d)
 
     return jsonify(places)
