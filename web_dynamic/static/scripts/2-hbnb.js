@@ -26,7 +26,7 @@ $(document).ready(function () {
       delete selectedAmenities[amenityId];
     }
 
-    const amenitiesList = Object.values(selectedAmenities).join(', ');
-    $('.amenities h4').text(amenitiesList);
-  });
+        const amenitiesList = Object.values(selectedAmenities).join(', ');
+        $('.amenities h4').text(amenitiesList);
+    });
 });
