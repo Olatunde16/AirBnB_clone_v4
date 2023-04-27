@@ -156,7 +156,5 @@ No known bugs at this time.
 ## Authors
 Nassali Fatumah - [Github](https://github.com/nassfatie)  
 Wambi Micheal - [Github](https://github.com/hsppie)
-
-Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
