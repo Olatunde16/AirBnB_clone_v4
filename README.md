@@ -159,6 +159,11 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 
-Second part of Airbnb: Joann Vuong
+### Second part of Airbnb:
+Joann Vuong
+
+### 4th part of Airbnb:s
+Melissa Arroyo - [GitHub](https://github.com/MelissaAT)
+Gabriel Fernandez - [GitHub](https://github.com/GABETROLL)
 ## License
 Public Domain. No copy write protection. 
