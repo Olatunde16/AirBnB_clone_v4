@@ -13,7 +13,6 @@ app = Flask(__name__)
 # app.jinja_env.lstrip_blocks = True
 
 
-
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
