@@ -78,10 +78,6 @@ button:hover {
     margin: 0px;
 }
 
-.amenities input {
-    left: 10px;
-}
-
 .locations .popover {
     margin-top: 0%;
 }
@@ -105,3 +101,7 @@ button:hover {
 .locations:hover .popover {
     visibility: visible;
 }
+.amenities label {
+    margin-left: 10px
+}
+

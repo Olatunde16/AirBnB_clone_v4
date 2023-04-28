@@ -39,7 +39,9 @@ def hbnb():
                            states=st_ct,
                            amenities=amenities,
                            places=places,
-                           cache_id=uuid.uuid4())
+                           cache_id = uuid.uuid4())
+
+
 
 
 if __name__ == "__main__":
