@@ -1,0 +1,239 @@
+{
+    "State.ff3359ef-1d87-43d1-ba38-acc2fd318cf9": {
+        "name": "France",
+        "created_at": "2023-04-25T07:24:56.866057",
+        "updated_at": "2023-04-25T07:24:56.866079",
+        "id": "ff3359ef-1d87-43d1-ba38-acc2fd318cf9",
+        "__class__": "State"
+    },
+    "City.815fa2ea-3be0-46cb-b916-90814d83aac2": {
+        "name": "Paris",
+        "state_id": "ff3359ef-1d87-43d1-ba38-acc2fd318cf9",
+        "created_at": "2023-04-25T07:25:23.977485",
+        "updated_at": "2023-04-25T07:25:23.977505",
+        "id": "815fa2ea-3be0-46cb-b916-90814d83aac2",
+        "__class__": "City"
+    },
+    "City.3053cb61-59b1-42bc-aa5c-3ee714032754": {
+        "name": "Toulouse",
+        "state_id": "ff3359ef-1d87-43d1-ba38-acc2fd318cf9",
+        "created_at": "2023-04-25T07:25:33.943432",
+        "updated_at": "2023-04-25T07:25:33.943462",
+        "id": "3053cb61-59b1-42bc-aa5c-3ee714032754",
+        "__class__": "City"
+    },
+    "City.38e5c335-561b-4fec-b28b-2545d40ab21f": {
+        "name": "Laval",
+        "state_id": "ff3359ef-1d87-43d1-ba38-acc2fd318cf9",
+        "created_at": "2023-04-25T07:25:43.102281",
+        "updated_at": "2023-04-25T07:25:43.102300",
+        "id": "38e5c335-561b-4fec-b28b-2545d40ab21f",
+        "__class__": "City"
+    },
+    "City.5470fb5e-ffa7-4f5c-a2f0-6b0626b880f8": {
+        "name": "Lille",
+        "state_id": "ff3359ef-1d87-43d1-ba38-acc2fd318cf9",
+        "created_at": "2023-04-25T07:25:49.893761",
+        "updated_at": "2023-04-25T07:25:49.893781",
+        "id": "5470fb5e-ffa7-4f5c-a2f0-6b0626b880f8",
+        "__class__": "City"
+    },
+    "State.bb7014fb-9164-47f6-a4c8-1425fed6bd1f": {
+        "name": "United States",
+        "created_at": "2023-04-25T07:26:26.074029",
+        "updated_at": "2023-04-25T07:26:26.074047",
+        "id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "__class__": "State"
+    },
+    "City.284bf15c-c082-4f4a-9ccc-f6a876f401f6": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "Los Angeles",
+        "created_at": "2023-04-25T07:27:52.085240",
+        "updated_at": "2023-04-25T07:27:52.085259",
+        "id": "284bf15c-c082-4f4a-9ccc-f6a876f401f6",
+        "__class__": "City"
+    },
+    "City.9aa7c245-a9f5-4f00-956c-8fee05feba76": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "Houston",
+        "created_at": "2023-04-25T07:29:48.525739",
+        "updated_at": "2023-04-25T07:29:48.525756",
+        "id": "9aa7c245-a9f5-4f00-956c-8fee05feba76",
+        "__class__": "City"
+    },
+    "City.ede44fa4-6b1b-41c3-beb1-6eacdffe1957": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "New York",
+        "created_at": "2023-04-25T07:29:58.053190",
+        "updated_at": "2023-04-25T07:29:58.053213",
+        "id": "ede44fa4-6b1b-41c3-beb1-6eacdffe1957",
+        "__class__": "City"
+    },
+    "City.b09467bf-fd6e-461d-84c1-ca9b304f9791": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "San Fransisco",
+        "created_at": "2023-04-25T07:30:14.915865",
+        "updated_at": "2023-04-25T07:30:14.915899",
+        "id": "b09467bf-fd6e-461d-84c1-ca9b304f9791",
+        "__class__": "City"
+    },
+    "City.cad00f33-fe16-4fc4-a06c-950ab741e0ff": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "San Antonio",
+        "created_at": "2023-04-25T07:30:32.357319",
+        "updated_at": "2023-04-25T07:30:32.357337",
+        "id": "cad00f33-fe16-4fc4-a06c-950ab741e0ff",
+        "__class__": "City"
+    },
+    "City.489f6f83-a31f-4818-b197-93b1f5987b43": {
+        "state_id": "bb7014fb-9164-47f6-a4c8-1425fed6bd1f",
+        "name": "Las Vegas",
+        "created_at": "2023-04-25T07:30:51.296099",
+        "updated_at": "2023-04-25T07:30:51.296131",
+        "id": "489f6f83-a31f-4818-b197-93b1f5987b43",
+        "__class__": "City"
+    },
+    "Amenity.2eb0b2ee-b326-4320-8ced-53ac96bd0dde": {
+        "name": "24-hours check-in",
+        "created_at": "2023-04-25T07:32:25.155152",
+        "updated_at": "2023-04-25T07:32:25.155172",
+        "id": "2eb0b2ee-b326-4320-8ced-53ac96bd0dde",
+        "__class__": "Amenity"
+    },
+    "Amenity.5f1b79f9-a4e3-47e4-b7a5-bb446f104449": {
+        "name": "Air conditioning",
+        "created_at": "2023-04-25T07:32:43.393449",
+        "updated_at": "2023-04-25T07:32:43.393467",
+        "id": "5f1b79f9-a4e3-47e4-b7a5-bb446f104449",
+        "__class__": "Amenity"
+    },
+    "Amenity.9eb80525-1c5e-4887-a3eb-4b46334f1c5f": {
+        "name": "Breakfast",
+        "created_at": "2023-04-25T07:32:59.571812",
+        "updated_at": "2023-04-25T07:32:59.571830",
+        "id": "9eb80525-1c5e-4887-a3eb-4b46334f1c5f",
+        "__class__": "Amenity"
+    },
+    "Amenity.da70f472-31b6-48b5-90c8-7842ea653615": {
+        "name": "Buzzer/wireless intercom",
+        "created_at": "2023-04-25T07:33:19.133099",
+        "updated_at": "2023-04-25T07:33:19.133119",
+        "id": "da70f472-31b6-48b5-90c8-7842ea653615",
+        "__class__": "Amenity"
+    },
+    "Amenity.cf704fd8-05ac-484e-ab9a-790fe5dac1c0": {
+        "name": "Cable TV",
+        "created_at": "2023-04-25T07:33:31.901676",
+        "updated_at": "2023-04-25T07:33:31.901696",
+        "id": "cf704fd8-05ac-484e-ab9a-790fe5dac1c0",
+        "__class__": "Amenity"
+    },
+    "Amenity.38a1d085-51c7-41cf-bd74-d22f067e9f7e": {
+        "name": "Carbon monoxide detector",
+        "created_at": "2023-04-25T07:33:44.124709",
+        "updated_at": "2023-04-25T07:33:44.124727",
+        "id": "38a1d085-51c7-41cf-bd74-d22f067e9f7e",
+        "__class__": "Amenity"
+    },
+    "Amenity.625b770a-9eff-4ff2-a9f7-1962340e5671": {
+        "name": "Cat(s)",
+        "created_at": "2023-04-25T07:33:56.960126",
+        "updated_at": "2023-04-25T07:33:56.960162",
+        "id": "625b770a-9eff-4ff2-a9f7-1962340e5671",
+        "__class__": "Amenity"
+    },
+    "Amenity.b1fe6dd2-1c89-405c-84bf-76b2dc04b3a5": {
+        "name": "Dog(s)",
+        "created_at": "2023-04-25T07:34:13.210867",
+        "updated_at": "2023-04-25T07:34:13.210887",
+        "id": "b1fe6dd2-1c89-405c-84bf-76b2dc04b3a5",
+        "__class__": "Amenity"
+    },
+    "Amenity.9cfcf687-c190-49cb-8a2e-329e35b148be": {
+        "name": "Doorman",
+        "created_at": "2023-04-25T07:34:21.831249",
+        "updated_at": "2023-04-25T07:34:21.831267",
+        "id": "9cfcf687-c190-49cb-8a2e-329e35b148be",
+        "__class__": "Amenity"
+    },
+    "User.7ab55a4a-ba6f-4560-9f0b-98b604d24857": {
+        "email": "taieb.chaabini@holbertonschool.com",
+        "password": "2dd8ee62bea5e48fd4e1c994ccb6b931",
+        "first_name": "Taieb",
+        "last_name": "Chaabini",
+        "created_at": "2023-04-25T07:37:34.157029",
+        "updated_at": "2023-04-25T07:37:34.157049",
+        "id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "__class__": "User"
+    },
+    "Place.18ec5ffd-495f-4199-b269-0b32b006275f": {
+        "name": "T5 meuble 130m2 + parking sous-sol",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus magna, venenatis non bibendum id, ornare in tellus. Nullam ultricies gravida tincidunt. Ut molestie, nibh vel auctor fringilla, neque risus elementum orci, et vestibulum nulla neque quis purus. In dolor massa, vehicula lobortis purus ac, tempor tincidunt arcu. Maecenas ut purus libero. Etiam nec mi nisl. Nullam ut pellentesque lorem. Suspendisse semper nulla vel ipsum euismod, ut condimentum sem blandit. Vestibulum luctus auctor erat nec volutpat. Integer finibus ultricies elit. Pellentesque hendrerit rhoncus velit, id sagittis magna euismod euismod. Integer elementum massa pulvinar ultrices maximus. Pellentesque eu viverra mi. Nulla semper ipsum tellus, vitae pretium enim aliquam eu. Pellentesque pulvinar ornare mi, sit amet tempus orci dapibus at. Morbi lobortis mattis fermentum. In ut nisi ante. Nulla congue aliquet arcu et cursus.",
+        "number_rooms": "5",
+        "number_bathrooms": "3",
+        "max_guest": "7",
+        "price_by_night": "300",
+        "user_id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "city_id": "3053cb61-59b1-42bc-aa5c-3ee714032754",
+        "created_at": "2023-04-25T07:40:27.798155",
+        "updated_at": "2023-04-25T07:40:27.798191",
+        "id": "18ec5ffd-495f-4199-b269-0b32b006275f",
+        "__class__": "Place"
+    },
+    "Place.5a7866b0-0c3c-452a-bb6c-3cc8f338ccde": {
+        "name": "The cheapest appartment in US",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit..",
+        "number_rooms": "3",
+        "number_bathrooms": "2",
+        "max_guest": "3",
+        "price_by_night": "50",
+        "city_id": "b09467bf-fd6e-461d-84c1-ca9b304f9791",
+        "user_id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "created_at": "2023-04-25T08:32:25.526985",
+        "updated_at": "2023-04-25T08:32:25.527013",
+        "id": "5a7866b0-0c3c-452a-bb6c-3cc8f338ccde",
+        "__class__": "Place"
+    },
+    "Place.a612ad93-0061-478a-ad4b-46d15fa1fd0e": {
+        "name": "The coolest appartement in US",
+        "description": "Everything provided, lowcost and near to shops",
+        "number_rooms": "3",
+        "number_bathrooms": "2",
+        "max_guest": "3",
+        "price_by_night": "120",
+        "city_id": "b09467bf-fd6e-461d-84c1-ca9b304f9791",
+        "user_id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "created_at": "2023-04-25T08:32:49.812586",
+        "updated_at": "2023-04-25T08:32:49.812621",
+        "id": "a612ad93-0061-478a-ad4b-46d15fa1fd0e",
+        "__class__": "Place"
+    },
+    "Place.d4eac22b-201b-4c36-8f58-9edf18949fb2": {
+        "name": "Beautiful Studio in Waikiki",
+        "description": "Fully furnished studio in condo hotel in Walkiki. Fits 2. Close to beach and shopping.",
+        "number_rooms": "1",
+        "number_bathrooms": "1",
+        "max_guest": "2",
+        "price_by_night": "119",
+        "city_id": "b09467bf-fd6e-461d-84c1-ca9b304f9791",
+        "user_id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "created_at": "2023-04-25T08:34:40.903680",
+        "updated_at": "2023-04-25T08:34:40.903701",
+        "id": "d4eac22b-201b-4c36-8f58-9edf18949fb2",
+        "__class__": "Place"
+    },
+    "Place.c039f4ef-773f-4441-b13c-b43dba6f5bd9": {
+        "name": "Private Studio - Waikiki Dream",
+        "description": "At begining Walkiki, the tourist center of Honolulu, this charming studio is about 10mn walking distance from the beach, and all happening",
+        "number_rooms": "3",
+        "number_bathrooms": "2",
+        "max_guest": "4",
+        "price_by_night": "119",
+        "city_id": "b09467bf-fd6e-461d-84c1-ca9b304f9791",
+        "user_id": "7ab55a4a-ba6f-4560-9f0b-98b604d24857",
+        "created_at": "2023-04-25T08:36:05.687244",
+        "updated_at": "2023-04-25T08:36:05.687284",
+        "id": "c039f4ef-773f-4441-b13c-b43dba6f5bd9",
+        "__class__": "Place"
+    }
+}
