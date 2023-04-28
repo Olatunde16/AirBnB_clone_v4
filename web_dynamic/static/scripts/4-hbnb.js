@@ -43,7 +43,12 @@ $(document).ready(function () {
       data: JSON.stringify(dataToSend),
       success: function (data) {
         $('section.places').empty();
-        data.forEach(place => $('section.places').append(addPlace(place)));
+        data.forEach(place => {
+          $.getJSON(`http://127.0.0.1:5001/api/v1/users/${place.user_id}`, function (user) {
+            place.user = user;
+            $('section.places').append(addPlace(place));
+          });
+        });
       },
       error: function (error) {
         console.log('POST request error', error);
@@ -66,6 +71,9 @@ $(document).ready(function () {
           <div class="number_bathrooms">${place.number_bathrooms} Bathroom</div>
         </div>
         <div class="description">
+          <b>Owner:</b> ${ place.user.first_name } ${ place.user.last_name }
+          <br>
+          <br>
           ${place.description}
         </div>
       </article>`;
