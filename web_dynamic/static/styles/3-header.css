@@ -9,3 +9,12 @@ header .logo {
     left: 20px;
     height: 100%;
 }
+
+header [id=api_status] {
+
+    text-align: right;
+    background-color: #cccccc;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
