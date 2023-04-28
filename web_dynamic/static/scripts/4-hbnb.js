@@ -1,20 +1,24 @@
 #!/usr/bin/node
 
-function getAllPlaces () {
-    let result = [];
-
-    const postApi = "http://0.0.0.0:5001/api/v1/places_search/";
-    $.ajax({
-        method: "POST",
-        url: postApi,
-        contentType: 'application/json',
-        data: JSON.stringify({}),
-        success: function (data) {
-            result = data;
-        }
-    });
-
-    return result;
+function renderPlace (place) {
+    $('.places').append(
+        `<article>
+            <div class="title_box">
+                <h2>${place.name}</h2>
+                <div class="price_by_night">$${ place.price_by_night }</div>
+            </div>
+            <div class="information">
+                <div class="max_guest">${ place.max_guest } Guest${place.max_guest != 1 }s</div>
+                <div class="number_rooms">${ place.number_rooms } Bedroom${ place.number_rooms != 1 }s</div>
+                <div class="number_bathrooms">${ place.number_bathrooms } Bathroom${ place.number_bathrooms != 1 }s</div>
+            </div>
+                <div class="user">
+                </div>
+                <div class="description">
+                    ${ place.description }
+            </div>
+        </article>`
+    );
 }
 
 $(document).ready(function() {
@@ -47,32 +51,21 @@ $(document).ready(function() {
         $('.amenities h4').text(amenitiesList);
     });
 
-    let places = getAllPlaces();
-
-    console.log(places);
-
-    for (const place of places) {
-        $('.places').append(`<article>
-        <div class="title_box">
-        <h2>${place.name}</h2>
-        <div class="price_by_night">$${ place.price_by_night }</div>
-                </div>
-                <div class="information">
-                <div class="max_guest">${ place.max_guest } Guest${place.max_guest != 1 }s</div>
-                    <div class="number_rooms">${ place.number_rooms } Bedroom${ place.number_rooms != 1 }s</div>
-                    <div class="number_bathrooms">${ place.number_bathrooms } Bathroom${ place.number_bathrooms != 1 }s</div>
-                </div>
-                <div class="user">
-                    </div>
-                    <div class="description">
-                ${ place.description }
-                    </div>
-        </article>`);
-    }
+    const postApi = "http://0.0.0.0:5001/api/v1/places_search/";
+    $.ajax({
+        method: "POST",
+        url: postApi,
+        contentType: 'application/json',
+        data: JSON.stringify({}),
+        success: function (places) {
+            for (const place of places) {
+                renderPlace(place);
+            }
+        }
+    });
 
     $('button').click(
         function searchPlacesWithSelectedAmenities () {
-            const postApi = "http://0.0.0.0:5001/api/v1/places_search/";
             $.ajax({
                 method: "POST",
                 url: postApi,
@@ -88,32 +81,21 @@ $(document).ready(function() {
                         $.get(
                             `http://0.0.0.0:5001/api/v1/places/${place.id}/amenities`,
                             function (placeAmenities, status) {
-                                const placeHasAllSelectedAmenities = Object.values(selectedAmenities).every(amenityId => placeAmenities.includes(amenityId));
+                                let placeAmenityNames = [];
+                                for (const placeAmenity of placeAmenities) {
+                                    placeAmenityNames.push(placeAmenity.id);
+                                }
+                                const placeHasAllCheckedAmenities = Object.keys(selectedAmenities).every(amenityId => placeAmenityNames.includes(amenityId));
                                 // only all Places with ALL of the selected Amenities (through the checkboxes)
                                 // will be selected.
-                                if (placeHasAllSelectedAmenities) {
-                                    $('.places').append(`<article>
-                                        <div class="title_box">
-                                        <h2>${place.name}</h2>
-                                        <div class="price_by_night">${ place.price_by_night }</div>
-                                        </div>
-                                        <div class="information">
-                                        <div class="max_guest">${ place.max_guest } Guest${place.max_guest != 1 }s</div>
-                                            <div class="number_rooms">${ place.number_rooms } Bedroom${ place.number_rooms != 1 }s</div>
-                                            <div class="number_bathrooms">${ place.number_bathrooms } Bathroom${ place.number_bathrooms != 1 }s</div>
-                                        </div>
-                                        <div class="user">
-                                            </div>
-                                            <div class="description">
-                                        ${ place.description }
-                                            </div>
-                                    </article>`);
+                                if (placeHasAllCheckedAmenities) {
+                                    renderPlace(place);
                                 }
                             }
                         );
                     }
                 }
-            }
-        );
-    });
-});
+            });
+        });
+    }
+);
