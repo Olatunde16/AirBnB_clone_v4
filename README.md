@@ -18,6 +18,13 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * [Authors](#authors)
 * [License](#license)
 
+##Concepts to learn
+Unittest - and please work all together on tests cases
+Python packages concept page
+Serialization/Deserialization
+*args, **kwargs
+datetime
+
 ## Environment
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
