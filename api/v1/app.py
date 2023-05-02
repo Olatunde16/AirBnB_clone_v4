@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 from flask import Flask, make_response, jsonify
 from models import storage
 from os import environ
 from api.v1.views import app_views
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -25,3 +27,5 @@ if __name__=="__main__":
     if not port:
         port = 5000
     app.run(host=host, port=port, threaded=True)
+#Cors
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
