@@ -82,14 +82,23 @@ class TestBaseModel(unittest.TestCase):
         """Test that two BaseModel instances have different datetime objects
         and that upon creation have identical updated_at and created_at
         value."""
+        # tic = time.mktime(datetime.now().timetuple())
         tic = datetime.now()
         inst1 = BaseModel()
+        # inst1.created_at = time.mktime(datetime.strptime(inst1.created_at, "%Y-%m-%d %H:%M:%S.%f").timetuple())
+        # print(inst1.created_at)
+        # toc = time.mktime(datetime.now().timetuple())
         toc = datetime.now()
-        self.assertTrue(tic <= inst1.created_at <= toc)
+        # print(toc)
+        # print(tic >= inst1.created_at <= toc)
+        self.assertTrue(tic <= inst1.created_at <= toc, True)
         time.sleep(1e-4)
         tic = datetime.now()
+        #tic = time.mktime(datetime.now().timetuple())
+        # tic = datetime.now()
         inst2 = BaseModel()
-        toc = datetime.now()
+        toc = datetime.now
+        # toc = time.mktime(datetime.now().timetuple())
         self.assertTrue(tic <= inst2.created_at <= toc)
         self.assertEqual(inst1.created_at, inst1.updated_at)
         self.assertEqual(inst2.created_at, inst2.updated_at)
