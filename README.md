@@ -154,7 +154,7 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Ezekiel Alene - [Github](https://github.com/ezekielmisgae)
+Ezekiel M. Alene - [Github](https://github.com/ezekielmisgae)
 Opeyemi Alabi - [Github](https://github.com/pymfemi)
 
 Second part of Airbnb: Joann Vuong
