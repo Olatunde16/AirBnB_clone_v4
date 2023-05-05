@@ -154,7 +154,7 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Uwimana ULowami - [Github](https://github.com/sonlowami) / [Twitter](https://twitter.com/--)  
+Uwimana Lowami - [Github](https://github.com/sonlowami) / [Twitter](https://twitter.com/--)  
 Charlian Imoisili - [Github](https://github.com/CharlyAnne) / [Twitter](https://twitter.com/Imoisiliii)  
 
 
