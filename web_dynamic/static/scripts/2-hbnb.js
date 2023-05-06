@@ -15,9 +15,11 @@ $(document).ready(function () {
       delete amenList[$(this).attr('data-id')];
     }
     let text = Object.values(amenList).join(', ');
-    if (text.length > 28) {
-      text = text.slice(0, 28) + '...';
-    }
-    $('.amenities > h4').text(text);
+    if (text.length > 37) {
+        text = text.slice(0, 37) + '...';
+      }
+      if (text) {
+        $('.amenities > h4').text(text);
+      }
   });
 });
