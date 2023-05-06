@@ -18,8 +18,10 @@ $(document).ready(function () {
     if (text.length > 37) {
         text = text.slice(0, 37) + '...';
       }
-      if (text) {
-        $('.amenities > h4').text(text);
-      }
+    if (text) {
+      $('.amenities > h4').text(text);
+    } else {
+      $('.amenities > h4').text("\xa0");
+    }
   });
 });
