@@ -25,7 +25,7 @@ $(function () {
 
   const postUrl = 'http://localhost:5001/api/v1/places_search/';
 
-  // Create and populate article tag with Places data.
+  // Filter places by Amenity
   function placesSearch () {
     const params = selectedAmenity.length
     ? {amenities: selectedAmenity}
