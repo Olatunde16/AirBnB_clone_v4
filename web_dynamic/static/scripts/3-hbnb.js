@@ -1,6 +1,6 @@
 $(function () {
+  const selectedAmenity = [];
   function addToSelectedAmenities () {
-    const selectedAmenity = [];
     $.each($('input:checked'), function (i, input) {
       selectedAmenity.push($(input).data('name'));
     });
@@ -23,38 +23,44 @@ $(function () {
   });
 
   const postUrl = 'http://localhost:5001/api/v1/places_search/';
-  // Create and populate article tag with places data.
-  $.ajax({
-    type: 'POST',
-    url: postUrl, 
-    data: '{}',
-    contentType: 'application/json',
-    success: function (places, reqStatus) {
-      $.each(places, function(i, place) {
-        const article = `
-        <article>
-	  <div class="title_box">
-	    <h2>${ place.name }</h2>
-	    <div class="price_by_night">${ place.price_by_night }</div>
-	  </div>
-	  <div class="information">
-	    <div class="max_guest">${place.max_guest} ${place.max_guest != 1 ? 'Guests' : 'Guest'}</div>
-            <div class="number_rooms">${place.number_rooms} ${place.number_rooms != 1 ? 'Rooms' : 'Room'}</div>
-            <div class="number_bathrooms">${place.number_bathrooms} ${place.number_bathrooms != 1 ? 'Bathrooms' : 'Bathroom'}</div>
-	  </div>
-	  <div class="user">
-            <b>Owner:</b> ${ place.user ? place.user.first_name +' '+ place.user.last_name : 'N/A'}
-          </div>
-          <div class="description">
-	    ${ place.description ? place.description : 'Nothing to show' }
-          </div>
-        </article> 
-        `;
-        $('section.places').append(article);
-      });
-    },
-    error: function () {
-      console.log('Error')
-    }
-   });
+
+  // Create and populate article tag with Places data.
+  function placesSearch () {
+    $.ajax({
+      type: 'POST',
+      url: postUrl, 
+      data: '{}',
+      contentType: 'application/json',
+      success: function (places, reqStatus) {
+        $.each(places, function(i, place) {
+          const article = `
+            <article>
+	    <div class="title_box">
+	      <h2>${ place.name }</h2>
+	      <div class="price_by_night">${ place.price_by_night }</div>
+	    </div>
+	    <div class="information">
+	      <div class="max_guest">${place.max_guest} ${place.max_guest != 1 ? 'Guests' : 'Guest'}</div>
+              <div class="number_rooms">${place.number_rooms} ${place.number_rooms != 1 ? 'Rooms' : 'Room'}</div>
+              <div class="number_bathrooms">${place.number_bathrooms} ${place.number_bathrooms != 1 ? 'Bathrooms' : 'Bathroom'}</div>
+	    </div>
+	    <div class="user">
+              <b>Owner:</b> ${ place.user ? place.user.first_name +' '+ place.user.last_name : 'N/A'}
+            </div>
+            <div class="description">
+	      ${ place.description ? place.description : 'Nothing to show' }
+            </div>
+          </article> 
+          `;
+          $('section.places').append(article);
+        });
+      },
+      error: function () {
+        console.log('Error');
+      }
+    });
+  }
+  placesSearch();
+  // On click fetch filtered Places
+  $('button').on('click', placesSearch);
 });
