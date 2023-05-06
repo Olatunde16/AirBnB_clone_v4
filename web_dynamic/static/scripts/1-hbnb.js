@@ -2,12 +2,10 @@ $('document').ready(function () {
   const amenities = {};
 
   $('input[type="checkbox"]').on('change', function () {
-    const amId = $(this).data('id');
-
     if ($(this).is(':checked')) {
-      amenities[amId] = $(this).attr('data-name');
+      amenities[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
-      delete amenities[amId];
+      delete amenities[$(this.attr('data-id'))];
     }
 
     $('.amenities h4').text(Object.values(amenities).join(', '));
