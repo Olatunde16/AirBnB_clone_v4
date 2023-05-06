@@ -13,5 +13,5 @@ header .logo {
     height: 100%;
 }
 .available {
-    background: #ff545f;
+    background: #ff545f !important;
 }
