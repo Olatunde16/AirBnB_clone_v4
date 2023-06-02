@@ -1,11 +1,25 @@
 header {
-    background: white;
-    height: 70px;
-    width: 100%;
-    border-bottom: 1px solid #CCCCCC;
+  background: white;
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
 }
+
 header .logo {
-    background: url("../images/logo.png") no-repeat;
-    left: 20px;
-    height: 100%;
+  background: url('../images/logo.png') no-repeat;
+  left: 20px;
+  height: 100%;
+}
+
+#api_status {
+  float: right;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 16px 15px;
+  background-color: #cccccc;
+}
+
+.available {
+  background-color: #ff545f !important;
 }
