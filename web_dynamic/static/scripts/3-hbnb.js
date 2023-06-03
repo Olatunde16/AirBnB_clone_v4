@@ -1,5 +1,5 @@
 $('document').ready(function () {
-  const url = 'http://' + window.location.hostname + ':5001/api/v1/status';
+  const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
   $.get(url, function (res) {
     if (res.status === 'OK') {
       $('#api_status').addClass('available');
@@ -7,7 +7,6 @@ $('document').ready(function () {
       $('#api_status').removeClass('available');
     }
   });
-
   const url2 =
     'http://' + window.location.hostname + ':5001/api/v1/places_search/';
   $.ajax({
@@ -21,11 +20,11 @@ $('document').ready(function () {
             place.name +
             '</h2><div class="price_by_night">' +
             place.price_by_night +
-            '</div></div><div class="information"><div class="max_gust"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br />' +
+            '</div></div><div class="information"><div class="max_guest"><i class="fa fa-users fa-3x" aria-hidden="true"></i><br />' +
             place.max_guest +
             ' Guests</div><div class="number_rooms"><i class="fa fa-bed fa-3x" aria-hidden="true"></i><br />' +
             place.number_rooms +
-            'Bedrooms</div><div class="number_bathrooms"><i class="fa fa-bath fa-3x" aria-hidden="true"></i><br />' +
+            ' Bedrooms</div><div class="number_bathrooms"><i class="fa fa-bath fa-3x" aria-hidden="true"></i><br />' +
             place.number_bathrooms +
             ' Bathroom</div></div><div class="description">' +
             place.description +
@@ -41,12 +40,12 @@ $('document').ready(function () {
   });
 
   const amenities = {};
-  $('input[type="checkbox"]').change(function () {
+  $('INPUT[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       amenities[$(this).attr('data-id')] = $(this).attr('data-name');
     } else {
       delete amenities[$(this).attr('data-id')];
     }
-    $('.amenities h4').text(Object.values(amenities).join(', '));
+    $('.amenities H4').text(Object.values(amenities).join(', '));
   });
 });
