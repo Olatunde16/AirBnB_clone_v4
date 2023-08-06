@@ -1,11 +1,12 @@
-$(document).ready( function() {
-  let amenity_array = [];
-  $('.popover :checkbox').change( function() {
-    if($(this).is(':checked')) {
-      amenity_array.push(this.amenity_id);
+$(document).ready(function () {
+  let AmenList = [];
+  $('input[type=checkbox]').change(function () {
+    const name = $(this).attr('data-name');
+    if ($(this).is(':checked')) {
+      AmenList.push(name);
     } else {
-      amenity_array = amenity_array.filter((item) => item !== this.amenity_id);
+      AmenList = AmenList.filter(amen => amen !== name);
     }
-  $('DIV#amenities h4').text(amenity_array);
+    $('.amenities h4').text(AmenList.join(', '));
   });
 });
