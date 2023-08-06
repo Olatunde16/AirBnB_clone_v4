@@ -9,9 +9,10 @@ from flasgger import Swagger
 from flasgger.utils import swag_from
 
 app = Flask(__name__)
+app.debug = True
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
-cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 @app.teardown_appcontext
@@ -26,7 +27,7 @@ def not_found(error):
     ---
     responses:
       404:
-        description: a resource was not found
+        description: a resource was not found in
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
