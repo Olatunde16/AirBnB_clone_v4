@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+""" Script that  Starts a Flash Web Application """
+
 from models import storage
 from models.state import State
 from models.city import City
@@ -19,7 +20,7 @@ def close_db(error):
     storage.close()
 
 
-@app.route('/0-hbnb/', strict_slashes=False)
+@app.route('/1-hbnb/', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
     states = storage.all(State).values()
@@ -35,7 +36,7 @@ def hbnb():
     places = storage.all(Place).values()
     places = sorted(places, key=lambda k: k.name)
 
-    return render_template('0-hbnb.html',
+    return render_template('1-hbnb.html',
                            states=st_ct,
                            amenities=amenities,
                            places=places,
