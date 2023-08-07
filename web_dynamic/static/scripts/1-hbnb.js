@@ -12,7 +12,13 @@ $(document).ready(function() {
 		}
 		 // Updates the h4 tag inside the div Amenities with the list of Amenities checked
 		const h4Tagg = $(".amenities h4");
-		const amenText = Object.values(amenIdNames).join(", ");
-		h4Tagg.text(amenText)
+    if (Object.values(amenIdNames).length < 3){
+      h4Tagg.text(Object.values(amenIdNames).join(","));
+    }
+    else{
+      // adding ellipsis(...)
+      const amenText = Object.values(amenIdNames).slice(0, 2).join(",") + "...";
+      h4Tagg.text(amenText);
+    }
 	});
 });
