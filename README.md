@@ -9,6 +9,7 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * Destroy an object
 
 ## Table of Content
+* [Prerequisite Installations](#prerequiste-installations)
 * [Environment](#environment)
 * [Installation](#installation)
 * [File Descriptions](#file-descriptions)
@@ -17,6 +18,31 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * [Bugs](#bugs)
 * [Authors](#authors)
 * [License](#license)
+
+## Prerequiste Installations
+
+### Versin 4
+
+* Import JQuery: `<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>` within the body, head, or footer of any html file that will use it for api requests. Preferably, after all non-script content.
+
+* You will work on a codebase using Flasgger, you will need to install it locally first before starting the RestAPI:
+
+* * Install [Flassger]https://github.com/flasgger/flasgger: `sudo apt-get install -y python3-lxml;sudo pip3 install flask_cors # if it was not installed yet;sudo pip3 install flasgger`
+
+* * If the RestAPI is not starting, please read the error message. Based on the(ses) error message(s), you will have to troubleshoot potential dependencies issues.
+
+* * * `jsonschema` exception: `sudo pip3 uninstall -y jsonschema;sudo pip3 install jsonschema==3.0.1`
+* * * `No module named 'pathlib2'`: `sudo pip3 install pathlib2`
+
+* **Expose ports from your Vagrant**
+
+* * In your `Vagrantfile`, add this line for each port forwarded:
+* * * `# I expose the port 5001 of my vm to the port 5001 on my computer`
+* * * `config.vm.network :forwarded_port, guest: 5001, host: 5001`
+* * if you need to expose other ports, same line but you will need to replace the “guest port” (inside your vagrant) and your “host port” (outside your vagrant, used from your browser for example)
+
+* * * It’s important in your project, to use the AirBnB API with the port `5001`
+
 
 ## Environment
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
