@@ -1,18 +1,4 @@
 $(document).ready(function () {
-    const request = require('request');
-    const url = 'http://0.0.0.0:5001/api/v1/status/';
-    request.get(url, (err, response, body) => {
-        if (err) {
-        console.log(err);
-        }
-    
-        if (response.statusCode === 200) {
-            $('div#api_status').addClass('available');
-        } else {
-            $('div#api_status').removeClass('available');
-        }
-    });
-
     let listAmenities = []
     $('input').change(function() {
         const amenityName = $(this).attr("data-name");
@@ -25,4 +11,15 @@ $(document).ready(function () {
         }
         $('div.amenities h4').text(listAmenities.join(', '));
     });
+    requestAPI('http://127.0.0.1:5001/api/v1/status/');
   });
+
+function requestAPI (url) {
+    $.get(url, (data) => {    
+        if (data.status === 'OK') {
+            $('div#api_status').addClass('available');
+        } else {
+            $('div#api_status').removeClass('available');
+        }
+    });
+}
