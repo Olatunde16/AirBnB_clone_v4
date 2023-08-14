@@ -21,8 +21,8 @@ $(document).ready(function () {
             listAmenities.push(amenityName);
         }
         else {
-            listOfCheckedAmenities = listOfCheckedAmenities.filter((item) => item !== amenityName);
+            listAmenities = listAmenities.filter((item) => item !== amenityName);
         }
-        $('div.amenities h4').text(listOfCheckedAmenities.join(', '));
+        $('div.amenities h4').text(listAmenities.join(', '));
     });
   });
