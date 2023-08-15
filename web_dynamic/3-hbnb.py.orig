@@ -37,11 +37,20 @@ def hbnb():
 
     cache_id = uuid.uuid4()
 
+<<<<<<< HEAD
     return render_template('3-hbnb.html',
+=======
+    return render_template('0-hbnb.html',
+>>>>>>> afeb2afd6acaf65996864fb153ac08c717e5c226
                            states=st_ct,
                            amenities=amenities,
                            places=places,
                            cache_id=cache_id)
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> afeb2afd6acaf65996864fb153ac08c717e5c226
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000)

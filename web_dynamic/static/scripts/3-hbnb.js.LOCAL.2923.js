@@ -1,9 +1,5 @@
 $(document).ready(function () {
-<<<<<<< HEAD
     $.get("http://0.0.0.0:5000/api/v1/status/", function (data, status) {
-=======
-    $.get("http://0.0.0.0:5001/api/v1/status/", function (data, status) {
->>>>>>> afeb2afd6acaf65996864fb153ac08c717e5c226
         if (status === "OK") {
             $("div#api_status").addClass("available");
         } else {
@@ -20,7 +16,6 @@ $(document).ready(function () {
         }
         $('div.amenities h4').text(listOfCheckedAmenities.join(', '));
     });
-<<<<<<< HEAD
     const placesSection = document.querySelector('.places');
 
     fetch('http://0.0.0.0:5000/api/v1/places_search', {
@@ -53,6 +48,4 @@ $(document).ready(function () {
         console.error('Error:', error);
     });
     
-=======
->>>>>>> afeb2afd6acaf65996864fb153ac08c717e5c226
 });
