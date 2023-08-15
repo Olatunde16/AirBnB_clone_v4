@@ -12,9 +12,9 @@ $(document).ready(function () {
         $('div.amenities h4').text(listAmenities.join(', '));
     });
     //gets the status of the api server
-    requestAPI('http://0.0.0.0:5001/api/v1/status/');
+    requestAPI('http://127.0.0.1:5001/api/v1/status/');
     //retrieves all places
-    places('http://0.0.0.0:5001/api/v1/places_search');
+    places('http://127.0.0.1:5001/api/v1/places_search');
   });
 
 function requestAPI (url) {
