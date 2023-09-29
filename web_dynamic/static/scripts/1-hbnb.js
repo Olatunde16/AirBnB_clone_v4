@@ -1,20 +1,34 @@
-$(document).ready(function () {
-    $("input[type=checkbox]").change(function () {
-    if ($(this).prop("checked")) {
-        // AÑADIMOS EL ID DEL AMENITY CAMBIADO A LA LISTA, KEY VALUE
-        idAmenity[$(this).attr("data-id")] = $(this).attr("data-name");
-        // console.log("aaaayuda", idAmenity)
-      } else {
-        // ELIMINAMOS POR CLAVE, ID DEL AMENITY
-        delete idAmenity[$(this).attr('data-id')];
+$(document).ready(function() {
+  // Initialize an empty array to store checked Amenity IDs
+  var checkedAmenities = [];
+
+  // Function to update the <h4> tag with the list of checked amenities
+  function updateAmenitiesList() {
+    var amenitiesList = checkedAmenities.join(', ');
+    $('.amenities h4').text('Selected Amenities: ' + amenitiesList);
+  }
+
+  // Listen for changes on each input checkbox
+  $('input[type="checkbox"]').on('change', function() {
+    var checkbox = $(this);
+    var amenityId = checkbox.data('id');
+
+    // Check if the checkbox is checked
+    if (checkbox.is(':checked')) {
+      // Add the Amenity ID to the array if it's not already there
+      if (checkedAmenities.indexOf(amenityId) === -1) {
+        checkedAmenities.push(amenityId);
       }
-        //SI NUESTRA LISTA RESULTA ESTAR VACÍA REMPLAZAMOS CON ESPACIO VACÍO
-      if (idAmenity.length === 0)
-          $('div.amenities h4').html("&nbsp;");
-        //SINO REMPLAZAMOS LOS H4 CON CADA ID DE AMENITY 
-      else {
-        $("div.amenities h4").text(Object.values(idAmenity).join(', '));
+    } else {
+      // Remove the Amenity ID from the array if it's already there
+      var index = checkedAmenities.indexOf(amenityId);
+      if (index !== -1) {
+        checkedAmenities.splice(index, 1);
       }
-    });
+    }
+
+    // Update the <h4> tag with the list of checked amenities
+    updateAmenitiesList();
   });
+});
   
