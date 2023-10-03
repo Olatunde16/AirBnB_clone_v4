@@ -1,19 +1,36 @@
-// declares a constant variable $
-const $ = window.$;
-// sets up a function that will be executed when the HTML document has finished loading
-$(document).ready(function () {
-  const amenities = {};
-  // This event will be triggered whenever the user checks or unchecks a checkbox
-  $('INPUT[type="checkbox"]').change(function () {
-    // is checked, the code adds a new property to the amenities
+#!/usr/bin/node
+amenity_dict = {}
+amenity_list = []
+$(document).ready(function() {
+    $('input:checkbox').change(function() {
     if ($(this).is(':checked')) {
-      amenities[$(this).attr('data-id')] = $(this).attr('data-name');
+        console.log("CHECKED")
+        amenity_id = $(this).data("id")
+        amenity_name = $(this).data("name")
+        amenity_dict[amenity_name] = amenity_id
+        console.log(amenity_dict)
+        amenity_list = Object.getOwnPropertyNames(amenity_dict)
+        console.log(amenity_list.toString())
+        if (amenity_list.length !== 0) {
+            $("#amenity_list").text(amenity_list.toString())
+        } else {
+            $("#amenity_list").text('\xa0')
+        }
+        
+
     } else {
-      // checkbox is not checked, code removes the corresponding property
-      delete amenities[$(this).attr('data-id')];
+        console.log("UNCHECKED")
+        amenity_id = $(this).data("id")
+        amenity_name = $(this).data("name")
+        delete amenity_dict[amenity_name]
+        console.log(amenity_dict)
+        amenity_list = Object.getOwnPropertyNames(amenity_dict)
+        console.log(amenity_list.toString())
+        if (amenity_list.length !== 0) {
+            $("#amenity_list").text(amenity_list.toString())
+        } else {
+            $("#amenity_list").text('\xa0')
+        }
     }
-    // selects H4 inside an element with class amenities and sets its text to the values
-    // of the properties on the amenities object, joined by a comma and a space.
-    $('.amenities H4').text(Object.values(amenities).join(', '));
-  });
+})
 });
