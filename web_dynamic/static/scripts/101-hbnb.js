@@ -29,7 +29,7 @@ function checkedObjects (nObject) {
   }
 }
 
-function apiStatus () {
+apiStatus (() => {
   const API_URL = `http://${HOST}:5001/api/v1/status/`;
   $.get(API_URL, (data, textStatus) => {
     if (textStatus === 'success' && data.status === 'OK') {
@@ -38,9 +38,9 @@ function apiStatus () {
       $('#api_status').removeClass('available');
     }
   });
-}
+})
 
-function searchPlaces () {
+searchPlaces (() => {
   const PLACES_URL = `http://${HOST}:5001/api/v1/places_search/`;
   $.ajax({
     url: PLACES_URL,
@@ -80,9 +80,9 @@ function searchPlaces () {
       console.log(error);
     }
   });
-}
+})
 
-function showReviews (obj) {
+showReviews ((obj) => {
   if (obj === undefined) {
     return;
   }
@@ -101,9 +101,9 @@ function showReviews (obj) {
     $(`#${obj.id}n`).html('Reviews');
     $(`#${obj.id}r`).empty();
   }
-}
+})
 
-function printReview (review, obj) {
+printReview ((review, obj) => {
   const date = new Date(review.created_at);
   const month = date.toLocaleString('en', { month: 'long' });
   const day = dateOrdinal(date.getDate());
@@ -118,11 +118,11 @@ function printReview (review, obj) {
       }
     });
   }
-}
+})
 
-function dateOrdinal (dom) {
+dateOrdinal ((dom) => {
   if (dom === 31 || dom === 21 || dom === 1) return dom + 'st';
   else if (dom === 22 || dom === 2) return dom + 'nd';
   else if (dom === 23 || dom === 3) return dom + 'rd';
   else return dom + 'th';
-}
+})
