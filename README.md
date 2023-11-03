@@ -156,6 +156,7 @@ No known bugs at this time.
 ## Authors
 Zakaria Rdouane - [Github](https://github.com/zrdouane) / [Linkedin](https://www.linkedin.com/in/zakaria-rdouane-190a93242/)
 
+EL FADILI Abdessamad ^_^
 
 ## Basecode
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
