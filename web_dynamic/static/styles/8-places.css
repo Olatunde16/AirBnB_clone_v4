@@ -109,3 +109,15 @@
 .user {
   margin-bottom: 1.5%;
 }
+
+.revBtn {
+    padding: 4px 8px;
+    font-size: 15px;
+    border: 1px solid red;
+    border-radius: 15px;   
+    cursor: pointer;
+}
+.revBtn:hover {
+    background-color: red;
+    color: white;
+}
