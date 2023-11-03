@@ -77,5 +77,4 @@ $('document').ready(function () {
                 </ARTICLE>`;
     }));
   }
-  >>>>>>> fd2f38be33396c78b9fcc4e759680dd911dd7991
-  
+   
