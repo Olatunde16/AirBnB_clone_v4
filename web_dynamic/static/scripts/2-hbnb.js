@@ -13,9 +13,9 @@ $(document).ready(function () {
       $('div.amenities > h4').html('&nbsp;');
     }
   });
-
+  const link = "http://" + window.location.hostname;
   $(function () {
-    const apiUrl = "http://0.0.0.0:5001/api/v1/status/";
+    const apiUrl = link + ":5001/api/v1/status/";
     $.get(apiUrl, function (data, status) {
       if (data.status === "OK" && status === "success") {
         $("#api_status").addClass("available");
