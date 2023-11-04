@@ -150,8 +150,50 @@ EOF  all  create  destroy  help  quit  show  update
 (hbnb) quit
 ```
 
-## Bugs
-No known bugs at this time. 
+# 0x06. AirBnB Clone - Web Dynamic
+
+This project is part of the Holberton School curriculum and is meant to be done in teams of 2 people. It focuses on building a dynamic web application for an AirBnB clone, incorporating various web development concepts, front-end scripting, and the use of jQuery for dynamic content.
+
+## Project Description
+
+The "AirBnB Clone - Web Dynamic" project aims to build a dynamic web application for an AirBnB-like service. It involves integrating dynamic features into the web application, such as filtering places by amenities, checking the API status, and fetching places from the back-end.
+
+## Project Tasks
+
+1. **Last Clone!**
+   - Fork and update the existing codebase to create a new repository named "AirBnB_clone_v4."
+   - Update the README.md with your names as authors and other relevant information.
+   - Ensure proper setup and dependencies.
+   
+2. **Cash Only**
+   - Create a Flask web application.
+   - Copy files from the web_flask directory into web_dynamic.
+   - Implement a dynamic filter for amenities using jQuery.
+   
+3. **API Status**
+   - Update the API entry point to allow CORS.
+   - Add an API status indicator to the web application using jQuery.
+   
+4. **Fetch Places**
+   - Fetch and display places from the back-end using jQuery.
+   
+5. **Filter Places by Amenity**
+   - Implement filtering of places by amenities using jQuery and POST requests.
+
+## Requirements
+
+- Allowed editors: vi, vim, emacs
+- Interpretation in Chrome (version 57.0)
+- All files should end with a new line
+- A README.md file in the project root directory is mandatory
+- Code should be semistandard compliant with the flag --global $: semistandard *.js --global $
+- All JavaScript code must be placed in the "scripts" folder
+- Use JQuery version 3.x
+
+
+This project is licensed under the terms of the Holberton School License.
+
+---
 
 ## Authors
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
@@ -159,6 +201,11 @@ Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://tw
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
 
+El mahdi Mouline - [Github](https://github.com/moulineE) / [Twitter](https://twitter.com/MoulineEl)
+Mohamed Ezghoudi - [Github](https://github.com/mohamed-622) / [Twitter]()
+
+
 Second part of Airbnb: Joann Vuong
+
 ## License
 Public Domain. No copy write protection. 
