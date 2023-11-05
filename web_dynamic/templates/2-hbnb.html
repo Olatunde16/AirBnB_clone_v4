@@ -59,10 +59,10 @@
 	    <H3>States</H3>
 	    <H4>&nbsp;</H4>
 	    <UL class="popover">
-	      {% for state in states|dictsort %}
-	      <H2>{{ state[0] }}</H2>
+	      {% for state in states %}
+	      <H2>{{ state[0].name }}</H2>
 	      <UL>
-		    {% for city in state[1].cities|sort(attribute='name') %}
+		    {% for city in state%}
 		      <LI>{{ city.name }}</LI>
 		    {% endfor %}
 	      </UL>
@@ -148,7 +148,8 @@
 
 	    <DIV class="user">
 
-	      <STRONG>Owner: {{ users[place.user_id] }}</STRONG>
+	      
+		  <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
 
 	    </DIV>
 	    <DIV class="description">
