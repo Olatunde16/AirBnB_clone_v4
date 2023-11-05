@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+""" Starts a Flask Web Application """
 from models import storage
 from models.state import State
 from models.city import City
@@ -7,9 +7,9 @@ from models.amenity import Amenity
 from models.place import Place
 from os import environ
 from flask import Flask, render_template
-app = Flask(__name__)
-# app.jinja_env.trim_blocks = True
-# app.jinja_env.lstrip_blocks = True
+import uuid
+
+app = Flask(__name)
 
 
 @app.teardown_appcontext
@@ -26,13 +26,13 @@ def hbnb():
     st_ct = []
 
     for state in states:
-        st_ct.append([state, sorted(state.cities, key=lambda k: k.name)])
+        st_ct.append([state, sorted(state.cities, key=lambda k.name)])
 
     amenities = storage.all(Amenity).values()
-    amenities = sorted(amenities, key=lambda k: k.name)
+    amenities = sorted(amenities, key=lambda k.name)
 
     places = storage.all(Place).values()
-    places = sorted(places, key=lambda k: k.name)
+    places = sorted(places, key=lambda k.name)
 
     # Generate a UUID using uuid.uuid4()
     cache_id = uuid.uuid4()
@@ -40,9 +40,8 @@ def hbnb():
     return render_template('100-hbnb.html',
                            states=st_ct,
                            amenities=amenities,
-                           places=places
+                           places=places,
                            cache_id=cache_id)  # Pass cache_id to the template
-
 
 if __name__ == "__main__":
     """ Main Function """
