@@ -1,19 +1,14 @@
 /* eslint-env jquery */ // => (we are using jQuery)
 /* Adding a listener that adds/removes amenities in an object */
 
-$(document).ready(function () {
-  const amenityObj = {};
-
-  $('.amenities .popover input').change(function () {
-    const amenityId = $(this).attr('data-id');
-    const amenityName = $(this).attr('data-name');
-
-    if ($(this).is(':checked')) {
-      amenityObj[amenityId] = amenityName;
-    } else {
-      delete amenityObj[amenityId];
-    }
-    const selectedAmenities = Object.values(amenityObj).sort().join(', ');
-    $('.amenities h4').text(selectedAmenities);
-  });
+document.ready(function () {
+	const amenities = {};
+	$("li input[type=checkbox]").change(function () {
+		if (this.checked) {
+			amenities[this.dataset.name] = this.dataset.id;
+		} else {
+			delete amenities[this.dataset.name];
+		}
+		$(".amenities h4").text(Object.keys(amenities).sort().join(", "));
+	});
 });
