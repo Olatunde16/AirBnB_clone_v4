@@ -1,4 +1,3 @@
-</HTML>
 <!DOCTYPE html>
 <HTML lang="en">
   <HEAD>
@@ -40,8 +39,6 @@
 	  -->
 
     <HEADER>
-      <DIV id="api_status" class="available">
-      </DIV>
     </HEADER>
     <MAIN>
       <DIV class="container">
@@ -60,10 +57,10 @@
 	    <H3>States</H3>
 	    <H4>&nbsp;</H4>
 	    <UL class="popover">
-	      {% for state in states %}
-	      <H2>{{ state[0].name }}</H2>
+	      {% for state in states|dictsort %}
+	      <H2>{{ state[0] }}</H2>
 	      <UL>
-		    {% for city in state%}
+		    {% for city in state[1].cities|sort(attribute='name') %}
 		      <LI>{{ city.name }}</LI>
 		    {% endfor %}
 	      </UL>
@@ -149,8 +146,7 @@
 
 	    <DIV class="user">
 
-	      
-		  <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
+	      <STRONG>Owner: {{ users[place.user_id] }}</STRONG>
 
 	    </DIV>
 	    <DIV class="description">
