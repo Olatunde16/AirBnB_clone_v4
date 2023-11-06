@@ -158,7 +158,10 @@ Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twit
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
+Adane Moges - [Github] (https://github.com/habeshaethiopia)
+Aibueku Precious Okwuoma - [Github] (https://github.com/aibuekuoprecious) / [Twitter](https://twitter.com/pre_shial)
 
 Second part of Airbnb: Joann Vuong
+Third part of Airbnb : Adane Moges & Aibueku Precious Okwuoma
 ## License
 Public Domain. No copy write protection. 
