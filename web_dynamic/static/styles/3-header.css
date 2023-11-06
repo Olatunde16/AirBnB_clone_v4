@@ -9,3 +9,10 @@ header .logo {
     left: 20px;
     height: 100%;
 }
+.available{
+    position: absolute;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    background-color: #ff545f;
+}
