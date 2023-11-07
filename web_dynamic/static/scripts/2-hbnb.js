@@ -1,21 +1,27 @@
-$(function () {
-  const amen = {};
-  $("#input#check_amen").change(function () {
-    if ($(this).is(":checked"))
-      amen[$(this).attr("data-name")] = $(this).attr("data-id");
-    else delete amen[$(this).attr("data-name")];
-    const objNames = Object.keys(amen);
-    $(".amenities h4").text(objNames.sort().join(", "));
-  });
-});
-
-$(function () {
-  const apiUrl = "http://0.0.0.0:5001/api/v1/status/";
-  $.get(apiUrl, function (data, status) {
-    if (data.status === "OK" && status === "success") {
-      $("#api_status").addClass("available");
+$(document).ready(function () {
+  let checkedAmenities = {};
+  $(document).on('change', "input[type='checkbox']", function () {
+    if (this.checked) {
+      checkedAmenities[$(this).data('id')] = $(this).data('name');
     } else {
-      $("#api_status").removeClass("available");
+      delete checkedAmenities[$(this).data('id')];
     }
+    let lst = Object.values(checkedAmenities);
+    if (lst.length > 0) {
+      $('div.amenities > h4').text(Object.values(checkedAmenities).join(', '));
+    } else {
+      $('div.amenities > h4').html('&nbsp;');
+    }
+  });
+  const link = "http://" + window.location.hostname;
+  $(function () {
+    const apiUrl = link + ":5001/api/v1/status/";
+    $.get(apiUrl, function (data, status) {
+      if (data.status === "OK" && status === "success") {
+        $("#api_status").addClass("available");
+      } else {
+        $("#api_status").removeClass("available");
+      }
+    });
   });
 });
