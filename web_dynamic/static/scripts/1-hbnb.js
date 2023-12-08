@@ -1,5 +1,5 @@
 function DocumentReady() {
-  const amenityList = [];
+  let amenityList = [];
   $('li input:checkbox').change(function () {
       const amenityObj = { id: $(this).data('id'), name: $(this).data('name') };
       if (this.checked) {
