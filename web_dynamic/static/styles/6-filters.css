@@ -6,6 +6,7 @@
     border: 1px solid #DDDDDD;
     border-radius: 4px;
 }
+
 button {
     position: absolute;
     font-size: 18px;
@@ -18,34 +19,46 @@ button {
     top: 15%;
     right: 30px;
 }
+
 button:hover {
     opacity: 0.9;
 }
+
 .filters div {
     display: inline-grid;
 }
+
 .filters h2 {
     margin-left: 15%;
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 600;
 }
+
 .filters h3 {
     margin-left: 15%;
     margin-bottom: 0;
     font-weight: 600;
 }
+
 .filters h4 {
     margin-left: 15%;
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 250px;
+    height: 1.05em;
 }
+
 .locations {
     height: 100%;
     width: 25%;
     border-right: 1px solid #DDDDDD;
 }
+
 .amenities {
     height: 100%;
     width: 25%;
