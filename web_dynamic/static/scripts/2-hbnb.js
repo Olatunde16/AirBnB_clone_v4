@@ -1,14 +1,10 @@
 $('document').ready(function () {
-  $.ajax({
-    url: 'http://localhost:5001/api/v1/status/',
-    type: 'GET',
-    dataType: 'json',
-    success: function (data) {
-      if (data.status === 'OK') {
-        $('div#api_status').addClass('available');
-      } else {
-        $('div#api_status').removeClass('available');
-      }
+  const url = 'http://' + window.location.hostname + ':5001/api/v1/status/';
+  $.get(url, function (response) {
+    if (response.status === 'OK') {
+      $('DIV#api_status').addClass('available');
+    } else {
+      $('DIV#api_status').removeClass('available');
     }
   });
 
