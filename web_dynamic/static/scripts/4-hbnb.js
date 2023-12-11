@@ -70,4 +70,8 @@ $(document).ready(function () {
 
     updatePlaces();
   });
+
+  $('button').click(function () {
+    updatePlaces();
+  });
 });
