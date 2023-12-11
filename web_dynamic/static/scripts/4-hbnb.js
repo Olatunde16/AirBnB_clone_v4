@@ -1,3 +1,4 @@
+#!/usr/bin/node
 $(document).ready(function () {
   const $statusIcon = $('div#api_status');
   const statusCheckUrl = 'http://localhost:5001/api/v1/status/';
@@ -113,26 +114,28 @@ $(document).ready(function () {
       dataType: 'json',
       data: JSON.stringify(amenities),
       contentType: 'application/json',
-      done: function (data) {
-        return data;
+      success: function (data) {
+        refreshHtmlPlaces(data);
+      },
+      error: function (error) {
+        console.error('Error', error);
       }
     });
   }
 
-  async function refreshHtmlPlaces (amenities = {}) {
-    const places = await getPlaces(amenities);
-
+  async function refreshHtmlPlaces(places) {
+    $placesSectionTag.empty();
     for (let i = 0; i < places.length; ++i) {
-      $placesSectionTag.append(createPlace(places[i]));
+      $placesSectionTag.append(newPlace(places[i]));
     }
   }
 
   $('button').click(function () {
     const amenitiesIds = {
-      amenities: Object.keys(dict)
+      amenities: Object.keys(amenities)
     };
 
-    $placesSectionTag.text('');
-    refreshHtmlPlaces(amenitiesIds);
-  });  
+    $placesSectionTag.empty('');
+    getPlaces(amenitiesIds);
+  });
 });
