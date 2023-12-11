@@ -4,6 +4,7 @@ $(document).ready(function () {
   const placesSearchUrl = 'http://localhost:5001/api/v1/places_search/';
   const $placesSectionTag = $('section.places');
 
+
   function newMaxGuests (guests) {
     if (guests !== 1) {
       return `<div class="max_guest">${guests} Guests</div>`;
@@ -105,5 +106,33 @@ $(document).ready(function () {
     }
   });
 
-  
+  function getPlaces (amenities) {
+    return $.ajax({
+      url: placesSearchUrl,
+      type: 'POST',
+      dataType: 'json',
+      data: JSON.stringify(amenities),
+      contentType: 'application/json',
+      done: function (data) {
+        return data;
+      }
+    });
+  }
+
+  async function refreshHtmlPlaces (amenities = {}) {
+    const places = await getPlaces(amenities);
+
+    for (let i = 0; i < places.length; ++i) {
+      $placesSectionTag.append(createPlace(places[i]));
+    }
+  }
+
+  $('button').click(function () {
+    const amenitiesIds = {
+      amenities: Object.keys(dict)
+    };
+
+    $placesSectionTag.text('');
+    refreshHtmlPlaces(amenitiesIds);
+  });  
 });
