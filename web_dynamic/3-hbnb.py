@@ -16,9 +16,9 @@ def teardown_db(exception):
     """Close the database connection"""
     storage.close()
 
-@app.route('/1-hbnb/')
+@app.route('/3 -hbnb/')
 def hbnb_filters(the_id=None):
-    """Display the 1-hbnb page"""
+    """Display the 3-hbnb page"""
     state_objs = storage.all('State').values()
     states = {state.name: state for state in state_objs}
     amens = storage.all('Amenity').values()
@@ -26,7 +26,7 @@ def hbnb_filters(the_id=None):
     users = {user.id: f"{user.first_name} {user.last_name}" for user in storage.all('User').values()}
     cache_id = str(uuid.uuid4())
 
-    return render_template('1-hbnb.html',
+    return render_template('3-hbnb.html',
                            states=states,
                            amens=amens,
                            places=places,
