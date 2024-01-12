@@ -1,19 +1,11 @@
 $(document).ready(function () {
   /* Show API status */
 
-  $.ajax({
-    url: 'http://0.0.0.0:5001/api/v1/status/',
-    method: 'GET',
-    succes: function (response) {
-      if (response.status === 'OK') {
-        $('#status_api').addClass('available');
-      } else {
-        $('#status_api').removeClass('available');
-      }
-    },
-    error: function (error) {
-      console.error(error);
-      $('div#status_api').removeClass('available');
+  $.getJSON('http://0.0.0.0:5001/api/v1/status/', function (data) {
+    if (data.status === 'OK') {
+      $('#api_status').addClass('available');
+    } else {
+      $('#api_status').removeClass('available');
     }
   });
 
