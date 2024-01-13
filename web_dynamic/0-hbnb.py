@@ -12,8 +12,6 @@ app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
 # app.jinja_env.lstrip_blocks = True
 
-cache_id = uuid.uuid4()
-
 
 @app.teardown_appcontext
 def close_db(error):
@@ -40,7 +38,7 @@ def hbnb():
     return render_template('0-hbnb.html',
                            states=st_ct,
                            amenities=amenities,
-                           cache_id=cache_id,
+                           cache_id=uuid.uuid4(),
                            places=places)
 
 
