@@ -29,7 +29,7 @@ $(function () {
     },
     success: (data) => {
       data.forEach((place) =>
-        $('section.places').append(
+        $('section.places').html(
                     `<article>
                 <div class="title_box">
                   <h2>${place.name}</h2>
@@ -43,9 +43,6 @@ $(function () {
                       <div class="number_bathrooms">${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''
                     }</div>
                 </div>
-                <div class="user">
-                      <b>Owner:</b> ${place.user.first_name} ${place.user.last_name}
-                    </div>
                     <div class="description">
                   ${place.description}
                     </div>
