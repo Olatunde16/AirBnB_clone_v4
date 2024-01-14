@@ -22,6 +22,7 @@ $(function () {
 
   $.ajax({
     url: 'http://127.0.0.1:5001/api/v1/places_search',
+    data: JSON.stringify({}),
     type: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -52,6 +53,7 @@ $(function () {
           `
         ));
     },
+    dataType: "json",
     error: function (error) {
       console.error('Error:', error);
     }
