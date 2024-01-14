@@ -2,7 +2,7 @@ const $ = window.$;
 let amenities = [];
 
 $(document).ready(function () {
-  // code run once document is ready
+  // when document is ready run this code
   $('.amenity_checkbox').click(function () {
     let amenityID = $(this).data('id');
     if (amenities.includes(amenityID)) {
