@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Starts a Flash Web Application """
+""" Flask Web Application for HBNB """
 from models import storage
 from models.state import State
 from models.city import City
@@ -10,38 +10,36 @@ from flask import Flask, render_template
 import uuid
 
 app = Flask(__name__)
-# app.jinja_env.trim_blocks = True
-# app.jinja_env.lstrip_blocks = True
 
 
 @app.teardown_appcontext
 def close_db(error):
-    """ Remove the current SQLAlchemy Session """
+    """ Closes the SQLAlchemy when the app context ends """
     storage.close()
-
 
 @app.route('/3-hbnb', strict_slashes=False)
 def hbnb():
-    """ HBNB is alive! """
-    states = storage.all(State).values()
-    states = sorted(states, key=lambda k: k.name)
-    st_ct = []
+    """ Endpoint for displaying HBNB information """
+    # Get all states, sort them by name
+    states = sorted(storage.all(State).values(), key=lambda m: m.name)
+    stat_cti = []
 
+    # For each state, create a list containing the state and its cities sorted by name
     for state in states:
-        st_ct.append([state, sorted(state.cities, key=lambda k: k.name)])
+        stat_cti.append([state, sorted(state.cities, key=lambda m: m.name)])
 
-    amenities = storage.all(Amenity).values()
-    amenities = sorted(amenities, key=lambda k: k.name)
+    # Get all amenities, sort them by name
+    amenities = sorted(storage.all(Amenity).values(), key=lambda m: m.name)
 
-    places = storage.all(Place).values()
-    places = sorted(places, key=lambda k: k.name)
+    # Get all places, sort them by name
+    places = sorted(storage.all(Place).values(), key=lambda m: m.name)
 
+    # Render the template with the data and a unique cache_id using uuid
     return render_template('3-hbnb.html',
-                           states=st_ct,
+                           states=stat_cti,
                            amenities=amenities,
                            places=places, cache_id=uuid.uuid4())
 
-
 if __name__ == "__main__":
-    """ Main Function """
+    """ Run the app on host '0.0.0.0' and port 5000 """
     app.run(host='0.0.0.0', port=5000)
