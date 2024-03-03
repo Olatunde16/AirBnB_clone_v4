@@ -4,7 +4,16 @@
 
 $(document).ready(function () {
     let amenity_dict = {}
+    let id_var = $('input:checkbox').attr('data_id');
     $("input:checkbox").change(function () {
-        amenity_dict["id"] = data_id
+        if ($(this).is(':checked')) {
+            amenity_dict[id_var] = true;
+        } else {
+            delete amenity_dict[id_var];
+        }
     });
+    $('DIV.amenities h4').empty();
+    for (let el of amenity_dict) {
+        $(this).append('<li>' + el + '</li>');
+    }
 });
