@@ -1,12 +1,35 @@
 document.ready(function () {
+	const HOST = "http://127.0.0.1:5001";
 	const amenities = {};
-	$("li input[type=checkbox]").change(function () {
-		if (this.checked) {
-			amenities[this.dataset.name] = this.dataset.id;
-		} else {
-			delete amenities[this.dataset.name];
+	const cities = {};
+	const states = {};
+
+	$('ul li input[type="checkbox"]').bind("change", (e) => {
+		const el = e.target;
+		let tt;
+		switch (el.id) {
+			case "state_filter":
+				tt = states;
+				break;
+			case "city_filter":
+				tt = cities;
+				break;
+			case "amenity_filter":
+				tt = amenities;
+				break;
 		}
-		$(".amenities h4").text(Object.keys(amenities).sort().join(", "));
+		if (el.checked) {
+			tt[el.dataset.name] = el.dataset.id;
+		} else {
+			delete tt[el.dataset.name];
+		}
+		if (el.id === "amenity_filter") {
+			$(".amenities h4").text(Object.keys(amenities).sort().join(", "));
+		} else {
+			$(".locations h4").text(
+				Object.keys(Object.assign({}, states, cities)).sort().join(", ")
+			);
+		}
 	});
 
 	// get status of API
