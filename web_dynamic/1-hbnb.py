@@ -21,7 +21,7 @@ def close_db(error):
 
 # vvv updated route as per instructions
 # - Ace
-@app.route('/1-hbnb/', strict_slashes=False)
+@app.route('/1-hbnb', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
     states = storage.all(State).values()
@@ -37,7 +37,7 @@ def hbnb():
     places = storage.all(Place).values()
     places = sorted(places, key=lambda k: k.name)
 
-    return render_template('0-hbnb.html',
+    return render_template('1-hbnb.html',
                            # ^^^ Went ahead and updated '100-hbnb.html' to '0-hbnb.html'
                            # -Ace
                            states=st_ct,
@@ -47,6 +47,7 @@ def hbnb():
                            # ^^^ Pretty sure I did the uuid right
                            # But I'm still getting yellow squiggles
                            #    I definitely did that wrong
+                           # No actually, it is working.
 
 
 if __name__ == "__main__":
