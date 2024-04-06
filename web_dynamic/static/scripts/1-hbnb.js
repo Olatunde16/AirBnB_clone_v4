@@ -1,13 +1,12 @@
-$(document).ready(function () {
-    let amenitiesChecked = []
-    $('input ["type=checkbox"]').change(function() {
+$(document).ready(function (){
+  let amenitiesChecked = [];
+  $('input[type="checkbox"]').change(function() {
+      let amenityId = $(this).attr('data-id');
       if (this.checked) {
-        let amenityId = $(this).attr('data-id');
-        amenitiesChecked.push(amenityId);
-       }
-      else {
-        amenitiesChecked.splice($.inArray(checked, amenitiesChecked), 1);
+          amenitiesChecked.push(amenityId);
+      } else {
+          amenitiesChecked.splice($.inArray(amenityId, amenitiesChecked), 1);
       }
-      $('.amenities h4').text(amenitiesChecked);
-    });
+      $('.amenities h4').text(amenitiesChecked.join(', '));
   });
+});
