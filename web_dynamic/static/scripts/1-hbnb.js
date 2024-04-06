@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     // Listening for changes on checkboxes
     $("input[type=checkbox]").change(function() {
-        let amenityId = $(this).data('id');
+        let amenityId = $(this).data('data-id');
         if ($(this).is(':checked')) {
             amenities[amenityId] = true;
         } else {
