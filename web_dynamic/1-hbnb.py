@@ -14,17 +14,17 @@ host = '0.0.0.0'
 
 
 @app.teardown_appcontext
-def teardown_db(exeption):
+def close_db(error):
     """ Remove the current SQLAlchemy Session  after each request """
     storage.close()
 
-@app.route('/1-hbnb')
+@app.route('/1-hbnb/')
 def filters_hbnb(the_id=None):
     """ for custom filter requests for states, cities and amenities modules"""
     state_objects = storage.all('State').values()
     states = dict([state.name, state] for state in state_objects)
     amenities = storage.all('Amenity').values()
-    places =storage.all('Place').values()
+    places = storage.all('Place').values()
     users = dict([user.id, "{} {}".format(user.first_name, user.last_name)]
                  for user in storage.all('User').values())
 
