@@ -154,9 +154,8 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Elijah Poole - [Github](https://github.com/VengeanceIsHis  
-Ahmad Nawabi - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
-David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
+Elijah Poole - [Github](https://github.com/VengeanceIsHis
+Ahmad Nawabi - [Github](https://github.com/AhmadNawabi)
 
 Second part of Airbnb: Joann Vuong
 ## License
