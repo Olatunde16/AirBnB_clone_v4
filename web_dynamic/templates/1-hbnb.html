@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/3-footer.css') + '?' + cache_id }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/6-filters.css') + '?' + cache_id }}">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='/styles/8-places.css') + '?' + cache_id }}">
-    <link rel="icon" href="../static/images/icon.png" />
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon.png') + '?' + cache_id }}">
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script type="{{ url_for('static', filename='/scripts/1-hbnb.js') + '?' + cache_id }}" ></script>
     <title>HBnB</title>
@@ -15,7 +15,6 @@
   <body>
     <header>
       <div class="logo"></div>
-      <div id="checkedAmenitiesList"></div>
     </header>
     <div class="container">
       <section class="filters">
@@ -44,8 +43,9 @@
 	    <ul>
 	      {% for amenity in amenities %}
 	      <li>
-		      <input type="checkbox" data-id=":amenity.id" data-name=":amenity.name" class="checkbox_amenity" style="position: relative; left: -10px;">
+		      <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
 		      {{ amenity.name }}
+		      </input>
 	      </li>
 
 	      {% endfor %}
