@@ -6,7 +6,8 @@ $(document).ready(function () {
 
   // Listen for checkbox input changes
   $('input[type="checkbox"]').change(function () {
-    const amenityID = $(this).val(); // Value of checkbox is amenityID
+    // Retrieve amenityID from the checkbox 'ID' attribute
+    const amenityID = $(this).data('id');
     // If checked:
     if (this.checked) {
       amenities[amenityID] = true; // Store ID in object
