@@ -10,7 +10,7 @@ $(document).ready(function() {
 		} else {
 			delete checkedAmenities[amenityId];
 		}
-	const amenitiesList = Object.values(checkedAmenities).join(', '));
+	const amenitiesList = Object.values(checkedAmenities).join(', ');
 	$('.amenities h4').text(amenitiesList);
 	$('#checkedAmenitiesList').text("Checked amenities:" + amenitiesList);
 
