@@ -35,21 +35,39 @@ button:hover {
     margin-bottom: 0;
     font-weight: 600;
 }
-.filters h4 {
+/*.filters h4 {
     margin-left: 15%;
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
-}
+}*/
+
 .locations {
     height: 100%;
     width: 25%;
     border-right: 1px solid #DDDDDD;
 }
 .amenities {
-    height: 100%;
+    /*height: 100%;*/
     width: 25%;
 }
+.container .filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 7px 0 3px 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 75%
+  }
+  
+/*.amenities h4 {
+   
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: calc(100% - 30px);
+}*/
 
 .popover {
     visibility: hidden;
@@ -69,7 +87,7 @@ button:hover {
 }
 
 .amenities .popover {
-    padding: 10px 0;
+    /*padding: 10px 0;*/
     margin-left: -5px;
     margin-top: 0%;
 }

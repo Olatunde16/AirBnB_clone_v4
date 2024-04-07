@@ -19,9 +19,9 @@ header #api_status {
     right: 30px;
     top: 30px;
     transform: translateY(-50%);
-    background: #cccccc;
+    background-color: #cccccc; 
 }
 
-.available {
-    background: #ff545f;
+#api_status.available {
+    background-color: #ff545f;
 }
