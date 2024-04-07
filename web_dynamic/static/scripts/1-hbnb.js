@@ -6,15 +6,18 @@ $(document).ready(function () {
 
   // Listen for checkbox input changes
   $('input[type="checkbox"]').change(function () {
-    const amenityID = $(this).val(); // Value of checkbox is amenityID
+    // Retrieve amenityID and amenityName from the checkbox 'ID' attribute
+    const amenityID = $(this).data('id');
+    const amenityName = $(this).data('name');
     // If checked:
     if (this.checked) {
-      amenities[amenityID] = true; // Store ID in object
+      // Attach amenityID to its corresponding name
+      amenities[amenityID] = amenityName;
     } else {
       delete amenities[amenityID]; // Remove ID from object
     }
-    // Add amenityIDs that are stored as keys in dict into single string
-    const updatedAmenities = Object.keys(amenities).join(', ');
+    // Add amenityNames that are stored in dict into single string
+    const updatedAmenities = Object.values(amenities).join(', ');
     // Updates all h4 elements associated with amenities
     $('.amenities h4').text(updatedAmenities);
   });
