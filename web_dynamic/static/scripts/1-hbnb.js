@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+$(document).ready(function (){
+  let amenitiesChecked = [];
+  $('input[type="checkbox"]').change(function() {
+      let amenityId = $(this).attr('data-id');
+      if (this.checked) {
+          amenitiesChecked.push(amenityId);
+      } else {
+          amenitiesChecked.splice($.inArray(amenityId, amenitiesChecked), 1);
+      }
+      $('.amenities h4').text(amenitiesChecked.join(', '));
+  });
+});
+=======
 window.addEventListener('load', function () {
   // task 2
   const amenityIds = {};
@@ -14,3 +28,4 @@ window.addEventListener('load', function () {
     }
   });
 });
+>>>>>>> eb0bc303cf4fcd2bebb2dfad884bcba1e1f73af0

@@ -14,7 +14,7 @@ def close_db(error):
     """ Remove the current SQLAlchemy Session  after each request """
     storage.close()
 
-@app.route('/1-hbnb/')
+@app.route('/1-hbnb/' strict_slashes=False)
 def filters_hbnb(the_id=None):
     """ for custom filter requests for states, cities and amenities modules"""
     states = {state.name: state for state in storage.all('State').values()}
