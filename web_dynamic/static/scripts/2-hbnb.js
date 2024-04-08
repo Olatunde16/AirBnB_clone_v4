@@ -1,22 +1,25 @@
 $(document).ready(function () {
-  let amenitiesChecked = []
-  let url = 'http://0.0.0.0:5001/api/v1/status/'
-  $.getJSON(url, function(data) {
+  let amenitiesChecked = [];
+  const url = 'http://0.0.0.0:5001/api/v1/status/';
+
+  $.getJSON(url, function (data) {
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
-    }
-    else {
+    } else {
       $('#api_status').removeClass('available');
     }
   });
-  $('input ["type=checkbox"]').change(function() {
-    if (this.checked) {
-      let amenityId = $(this).attr('data-id');
+
+  $('input[type="checkbox"]').change(function () {
+    const amenityId = $(this).data('id');
+    const index = amenitiesChecked.indexOf(amenityId);
+
+    if (this.checked && index === -1) {
       amenitiesChecked.push(amenityId);
-     }
-    else {
-      amenitiesChecked.splice($.inArray(checked, amenitiesChecked), 1);
+    } else if (!this.checked && index!== -1) {
+      amenitiesChecked.splice(index, 1);
     }
-    $('.amenities h4').text(amenitiesChecked);
+
+    $('.amenities h4').text(amenitiesChecked.join(', '));
   });
 });
