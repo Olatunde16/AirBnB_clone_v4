@@ -9,13 +9,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles/6-filters.css') + '?' + cache_id }}">
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='/styles/8-places.css') + '?' + cache_id }}">
     <link rel="icon" href="{{ url_for('static', filename='/images/icon.png') + '?' + cache_id }}">
-     <script src="{{ url_for('static', filename='/scripts/2-hbnb.js') + '?' + cache_id }}" ></script>
+     <script src="{{ url_for('static', filename='/scripts/4-hbnb.js') + '?' + cache_id }}" ></script>
     <title>HBnB</title>
   </head>
   <body>
     <header>
       <div class="logo"></div>
-      <div id="checkedAmenitiesList"></div>
       <div id="api_status"></div>
     </header>
     <div class="container">
@@ -45,40 +44,18 @@
 	    <ul>
 	      {% for amenity in amenities %}
 	      <li>
-		      <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name}} " class="checkbox_amenity" style="position: relative; left: -10px;">
+		      <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}" class="checkbox_amenity" style="position: relative; left: -10px;">
 		      {{ amenity.name }}
-		  </input>
 	      </li>
 
 	      {% endfor %}
 	    </ul>
 	  </div>
 	</div>
-	<button type="button">Search</button>
+	<button type="button" class="search_btn">Search</button>
       </section>
       <div class="placesh1"><h1>Places</h1></div>
-      <section class="places">
-	<!-- <h1>Places</h1> -->
-	{% for place in places %}
-	<article>
-	  <div class="title_box">
-	    <h2>{{ place.name }}</h2>
-	    <div class="price_by_night">${{ place.price_by_night }}</div>
-	  </div>
-	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
-	  </div>
-	  <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div>
-          <div class="description">
-	    {{ place.description | safe }}
-          </div>
-	</article>
-	{% endfor %}
-      </section>
+      <section class="places"></section>
     </div>
     <footer>
       <p>Holberton School</p>
