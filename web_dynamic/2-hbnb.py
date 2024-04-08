@@ -48,6 +48,7 @@ def hbnb():
                            # But I'm still getting yellow squiggles
                            #    I definitely did that wrong
                            # No actually, it is working.
+                           #    Initially I hadn't imported uuid ^_^'
 
 
 if __name__ == "__main__":

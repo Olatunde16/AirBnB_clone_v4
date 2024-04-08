@@ -38,7 +38,7 @@ def hbnb():
     places = sorted(places, key=lambda k: k.name)
 
     return render_template('1-hbnb.html',
-                           # ^^^ Went ahead and updated '100-hbnb.html' to '0-hbnb.html'
+                           # ^^^ Went ahead and updated '100-hbnb.html' to '1-hbnb.html'
                            # -Ace
                            states=st_ct,
                            amenities=amenities,
@@ -48,6 +48,7 @@ def hbnb():
                            # But I'm still getting yellow squiggles
                            #    I definitely did that wrong
                            # No actually, it is working.
+                           #    Initially I hadn't imported uuid ^_^'
 
 
 if __name__ == "__main__":
