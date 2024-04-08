@@ -3,9 +3,25 @@ header {
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
-}
+
+    position: relative; /* Allows absolute positioning inside the header */
+    height: 60px; /* Adjust according to your header's height for vertical centering */
+  }
 header .logo {
     background: url("../images/logo.png") no-repeat;
     left: 20px;
     height: 100%;
 }
+#api_status {
+    position: absolute; /* Positioning relative to header */
+    right: 30px; /* 30px from the right border of the header */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust the positioning to truly center the element */
+    width: 40px; /* Diameter */
+    height: 40px; /* Diameter */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #cccccc; /* Background color */
+  }
+#api_status.available {
+    background-color: #ff545f; /* Bright red background color */
+  }

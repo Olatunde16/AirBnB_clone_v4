@@ -9,3 +9,14 @@ body .container {
     max-width: 1000px;
     margin: 30px auto;
 }
+#checkedAmenitiesList {
+    white-space: nowrap; /* Keep the text on a single line */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis to overflow text */
+    width: 100%; /* Set a specific width or max-width */
+    display: block; /* Ensure it's a block element to respect width */
+    /* Additional styling for visibility and alignment */
+    margin-top: 10px; /* Example spacing */
+    margin-bottom: 10px; /* Example spacing */
+  }
+  
