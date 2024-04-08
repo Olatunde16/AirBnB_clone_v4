@@ -1,3 +1,5 @@
+// Simple JS Script to change state of checkboxes.
+
 $(document).ready(function(){
   let amenitiesChecked = {};
 
@@ -22,3 +24,4 @@ $.get('http://localhost:5001/api/v1/status/', (response) => {
   $('div#api_status').removeClass('available');
 });
 });
+
