@@ -22,9 +22,10 @@ $(document).ready(function () {
       $('.amenities h4').text(updatedAmenities);
     });
 
-    const apiURL = 'http://0.0.0.0:5001/api/v1/status/';
+    const apiURL = 'http://localhost:5001/api/v1/status/';
     // Request API status
     $.get(apiURL, function(data) {
+        console.log(data);
         if (data.status === 'OK') {
             // If API is running, change color of api_status on webpage
             $('#api_status').addClass('available');
