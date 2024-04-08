@@ -1,69 +1,66 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  const checkedAmenities = {};
 
-	let checkedAmenities = {};
+  $('input[type="checkbox"]').change(function () {
+    const amenityId = $(this).attr('data-id');
+    const amenityName = $(this).attr('data-name');
 
-	$('input[type="checkbox"]').change(function() {
-		const amenityId = $(this).attr('data-id');
-		const amenityName = $(this).attr('data-name');
-
-		if ($(this).prop('checked')) {
-			checkedAmenities[amenityId] = amenityName;
-		} else {
-			delete checkedAmenities[amenityId];
-		}
-	const amenitiesList = Object.values(checkedAmenities).join(', ');
-	$('.amenities h4').text(amenitiesList);
-	$('#checkedAmenitiesList').text("Checked amenities:" + amenitiesList);
-	});
-    function getPlaces(){
-        $.ajax({
-            type: 'POST',
-            url: 'http://0.0.0.0:5001/api/v1/places_search',
-            contentType: 'application/json',
-            data: JSON.stringify({'amenities': Object.keys(checkedAmenities) }),
-            success: function (places) {
-                $('section.places').empty();
-                for (const place of places) {
-                appendArticle(place);
-                }
-        
-        }
-        });
-};
-    getPlaces();
-    $('.search_btn').click(function() {
-        
-        getPlaces();
-    })
-
+    if ($(this).prop('checked')) {
+      checkedAmenities[amenityId] = amenityName;
+    } else {
+      delete checkedAmenities[amenityId];
+    }
+    const amenitiesList = Object.values(checkedAmenities).join(', ');
+    $('.amenities h4').text(amenitiesList);
+    $('#checkedAmenitiesList').text('Checked amenities:' + amenitiesList);
+  });
+  function getPlaces () {
     $.ajax({
-        type: "GET",
-        url: "http://0.0.0.0:5001/api/v1/status",
-        success: function(response) {
-			if (response.status === 'OK') {
-                $('DIV#api_status').addClass('available');
-            } else {
-                $('DIV#api_status').removeClass('available');
-                }
+      type: 'POST',
+      url: 'http://0.0.0.0:5001/api/v1/places_search',
+      contentType: 'application/json',
+      data: JSON.stringify({ amenities: Object.keys(checkedAmenities) }),
+      success: function (places) {
+        $('section.places').empty();
+        for (const place of places) {
+          appendArticle(place);
         }
+      }
     });
+  }
+  getPlaces();
+  $('.search_btn').click(function () {
+    getPlaces();
+  });
 
-    // function findPlaces () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://0.0.0.0:5001/api/v1/status',
+    success: function (response) {
+      if (response.status === 'OK') {
+        $('DIV#api_status').addClass('available');
+      } else {
+        $('DIV#api_status').removeClass('available');
+      }
+    }
+  });
 
-    //     $.ajax({
-    //         type: 'Post',
-    //         url: 'http://0.0.0.0:5001/api/v1/places_search',
-    //         contentType: 'application/json',
-    //         data: JSON.stringify({}),
-    //         success: function (places) {
-    //             for (const place of places) {
-    //             appendArticle(place);
-    //             }
-    //         }
-    // });
-    // }
-    
-function appendArticle (place) {
+  // function findPlaces () {
+
+  //     $.ajax({
+  //         type: 'Post',
+  //         url: 'http://0.0.0.0:5001/api/v1/places_search',
+  //         contentType: 'application/json',
+  //         data: JSON.stringify({}),
+  //         success: function (places) {
+  //             for (const place of places) {
+  //             appendArticle(place);
+  //             }
+  //         }
+  // });
+  // }
+
+  function appendArticle (place) {
     const guestS = place.max_guest !== 1 ? 'Guests' : 'Guest';
     const roomS = place.number_rooms !== 1 ? 'Bedrooms' : 'Bedroom';
     const bathroomS = place.number_bathrooms !== 1 ? 'Bathrooms' : 'Bathroom';
@@ -81,5 +78,5 @@ function appendArticle (place) {
         <div class="description"><p>${place.description}</p></div>
     </acrticle>
     `);
-    }
+  }
 });
