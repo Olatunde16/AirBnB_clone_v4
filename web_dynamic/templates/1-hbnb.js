@@ -22,3 +22,25 @@ $(document).ready(function() {
         $('#Amenities h4').text("Amenities: " + amenitiesList);
     }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const url = 'http://0.0.0.0:5001/api/v1/status/';
+    const apiStatus = document.querySelector('#api_status');
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'OK') {
+                apiStatus.classList.add('available');
+            } else {
+                apiStatus.classList.remove('available');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+});
