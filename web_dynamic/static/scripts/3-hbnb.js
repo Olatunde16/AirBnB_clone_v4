@@ -34,9 +34,10 @@ $(function (){
     contentType: 'application/json',
     data: '{}',
     success: function(result){
-      for (const data of result.results){
+      for (const place of result.results){
+
         document.createElement("article")
-        
+
       }
     }
     })
