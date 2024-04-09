@@ -26,19 +26,22 @@ $.get('http://localhost:5001/api/v1/status/', (response) => {
 
 // Request for places search
 // Kind of low key want to change this to localhost rather than 0.0.0.0 ???
-$(function (){
-  $.ajax({
-    url: 'http://localhost:5001/api/v1/places_search/',
-    type: 'POST',
-    dataType: 'json',
-    contentType: 'application/json',
-    data: '{}',
-    success: function(result){
-      for (const data of result.results){
-        document.createElement("article")
-        
-      }
-    }
-    })
-  })
-})
+$.ajax({
+  url: 'http://localhost:5001/api/v1/places_search/',
+  type: 'POST',
+  dataType: 'json',
+  contentType: 'application/json',
+  data: JSON.stringify({}), 
+  success: function(places) { 
+    const placesSection = $('.places'); 
+    $.each(places, function(index, place) { 
+      const article = `<article>
+                        <h2>${place.name}</h2>
+                        <div>Price: $${place.price_by_night}</div>
+                        <div>Description: ${place.description}</div>
+                        </article>`;
+      placesSection.append(article);
+    });
+  }
+});
+});
