@@ -36,9 +36,16 @@ $.ajax({
     const placesSection = $('.places'); 
     $.each(places, function(index, place) { 
       const article = `<article>
+                        <div class="title_box">
                         <h2>${place.name}</h2>
                         <div>Price: $${place.price_by_night}</div>
-                        <div>Description: ${place.description}</div>
+                        </div>
+                        <div class="information">
+                          <div class="max_guest">${place.max_guest} Guests</div>
+                          <div class="number_rooms">${place.number_rooms} Rooms</div>
+                          <div class="number_bathrooms">${place.number_bathrooms} Bathrooms</div>
+                        </div>
+                        <div class="description">Description: ${place.description}</div>
                         </article>`;
       placesSection.append(article);
     });
