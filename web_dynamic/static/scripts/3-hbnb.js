@@ -28,15 +28,17 @@ $.get('http://localhost:5001/api/v1/status/', (response) => {
 // Kind of low key want to change this to localhost rather than 0.0.0.0 ???
 $(function (){
   $.ajax({
-    url: "http://0.0.0.0:5001/api/v1/places_search/",
+    url: 'http://localhost:5001/api/v1/places_search/',
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: '{}',
     success: function(result){
-      for (const data of result) {
-        $('#places_please_be_right').text(data)
-        // console.log(data)
+      for (const data of result.results){
+        document.createElement("article")
+        
       }
     }
+    })
   })
 })
-
-});
-
