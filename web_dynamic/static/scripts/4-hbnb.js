@@ -18,22 +18,63 @@ $(document).ready(function() {
         }
         // Update the h4 tag inside the div with id "amenities"
         updateAmenitiesList();
-
-    // Fetch API status 
-    $.get('http://0.0.0.0:5001/api/v1/status/', function(data) {
-        // Check if the status is "OK"
-        if (data.status === 'OK') {
-            // If yes, add the 'available' class to div#api_status
-            $('#api_status').addClass('available');
-        } else {
-            // If not, remove the 'available' class
+        // Fetch API status 
+        $.get('http://0.0.0.0:5001/api/v1/status/', function(data) {
+            // Check if the status is "OK"
+            if (data.status === 'OK') {
+                // If yes, add the 'available' class to div#api_status
+                $('#api_status').addClass('available');
+            } else {
+                // If not, remove the 'available' class
+                $('#api_status').removeClass('available');
+            }
+        }).fail(function(error) {
+            console.error('Error fetching API status:', error);
             $('#api_status').removeClass('available');
-        }
-    }).fail(function(error) {
-        console.error('Error fetching API status:', error);
-        $('#api_status').removeClass('available');
+        });
     });
-});
+    $('#button').click(function() {
+        // Initialize an array to hold the checked amenities
+        let checkedAmenities = [];
+        
+        // Iterate over each checked checkbox and add its value to the array
+        $('.amenity-checkbox:checked').each(function() {
+            checkedAmenities.push($(this).val());
+        });
+        
+        // Now, make the POST request to places_search
+        $.ajax({
+            url: "http://0.0.0.0:5001/api/v1/places_search",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({amenities: checkedAmenities}), // Sending the list of checked amenities
+            datatype: 'json',
+            success: function(data) {
+                // Handle success. For example, clear the section and append new results
+                $('section.places').empty(); // Clear existing places
+                $('section.places').append(data.map(place => {
+                    return `<article>
+                                <div class="title_box">
+                                    <h2>${place.name}</h2>
+                                    <div class="price_by_night">$${place.price_by_night}</div>
+                                </div>
+                                <div class="information">
+                                    <div class="max_guest">${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}</div>
+                                    <div class="number_rooms">${place.number_rooms} Bedroom${place.number_rooms !== 1 ? 's' : ''}</div>
+                                    <div class="number_bathrooms">${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}</div>
+                                </div>
+                                <div class="description">
+                                    ${place.description}
+                                </div>
+                            </article>`;
+                }));
+            },
+            error: function(error) {
+                // Handle error
+                console.error("Error: ", error);
+            }
+        });
+    });
     $.ajax({
         url: "http://0.0.0.0:5001/api/v1/places_search", // Endpoint URL
         type: "POST",
@@ -69,4 +110,5 @@ $(document).ready(function() {
     } 
 
 
+    
 });
