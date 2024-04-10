@@ -1,5 +1,5 @@
 # AirBnB Clone - The Console
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+The console is the first segment of the AirBnB project at Atlas Tech School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
@@ -54,7 +54,7 @@ Classes inherited from Base Model:
 * [state.py](/models/state.py)
 * [user.py](/models/user.py)
 
-#### `/models/engine` directory contains File Storage class that handles JASON serialization and deserialization :
+#### `/models/engine` directory contains File Storage class that handles JSON serialization and deserialization :
 [file_storage.py](/models/engine/file_storage.py) - serializes instances to a JSON file & deserializes back to instances
 * `def all(self)` - returns the dictionary __objects
 * `def new(self, obj)` - sets in __objects the obj with key <obj class name>.id

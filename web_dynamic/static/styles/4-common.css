@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body .container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+#checkedAmenitiesList {
+    white-space: nowrap; /* Keep the text on a single line */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis to overflow text */
+    max-width: 200px; /* Set a specific width or max-width */
+    display: block; /* Ensure it's a block element to respect width */
+    /* Additional styling for visibility and alignment */
+    margin-top: 10px; /* Example spacing */
+    margin-bottom: 10px; /* Example spacing */
+  }
+  
