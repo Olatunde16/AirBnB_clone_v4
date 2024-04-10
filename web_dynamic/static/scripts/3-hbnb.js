@@ -24,15 +24,12 @@ $(document).ready(function() {
         url: "http://0.0.0.0:5001/api/v1/places_search", // Endpoint URL
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({}), // Sending an empty dictionary
-        success: function(response) {
+        data: "{}", // Sending an empty dictionary
+        datatype: 'json',
+        success: function(data) {
             // Clear existing places
-            $('section.places').empty();
-
-            // Iterate through the places and append them
-            $.each(response, function(index, place) {
-                var placeHtml = `
-                    <article>
+            $('section.places').append(data.map(place => {
+              return `<article>
                         <div class="title_box">
                             <h2>${place.name}</h2>
                             <div class="price_by_night">$${place.price_by_night}</div>
@@ -45,12 +42,8 @@ $(document).ready(function() {
                         <div class="description">
                             ${place.description}
                         </div>
-                    </article>`;
-                $('section.places').append(placeHtml);
-            });
-        },
-        error: function(xhr, status, error) {
-            console.error("Could not fetch places: " + error);
+                      </article>`
+            }));
         }
     });
 

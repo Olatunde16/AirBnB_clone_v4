@@ -13,7 +13,7 @@ body .container {
     white-space: nowrap; /* Keep the text on a single line */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Add ellipsis to overflow text */
-    width: 100%; /* Set a specific width or max-width */
+    max-width: 200px; /* Set a specific width or max-width */
     display: block; /* Ensure it's a block element to respect width */
     /* Additional styling for visibility and alignment */
     margin-top: 10px; /* Example spacing */
