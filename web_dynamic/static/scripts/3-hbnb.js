@@ -14,7 +14,7 @@ $(document).ready(function(){
   });
 
 //Get API Status
-$.get('http://localhost:5001/api/v1/status/', (response) => {
+$.get('http://0.0.0.0:5001/api/v1/status/', (response) => {
   if (response.status === "OK") {
     $('div#api_status').addClass('available');
   } else {
@@ -27,7 +27,7 @@ $.get('http://localhost:5001/api/v1/status/', (response) => {
 // Request for places search
 // Kind of low key want to change this to localhost rather than 0.0.0.0 ???
 $.ajax({
-  url: 'http://localhost:5001/api/v1/places_search/',
+  url: 'http://0.0.0.0:5001/api/v1/places_search/',
   type: 'POST',
   dataType: 'json',
   contentType: 'application/json',

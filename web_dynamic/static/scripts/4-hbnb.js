@@ -21,7 +21,7 @@ $(document).ready(function(){
   });
 
 //Get API Status
-$.get('http://localhost:5001/api/v1/status/', (response) => {
+$.get('http://0.0.0.0:5001/api/v1/status/', (response) => {
   if (response.status === "OK") {
     $('div#api_status').addClass('available');
   } else {
@@ -33,7 +33,7 @@ $.get('http://localhost:5001/api/v1/status/', (response) => {
 
 function loadPlaces(amenities = {}) {
     $.ajax({
-      url: 'http://localhost:5001/api/v1/places_search/',
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
