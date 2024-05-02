@@ -9,3 +9,29 @@ header .logo {
     left: 20px;
     height: 100%;
 }
+#api_status {
+    position: absolute;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    text-align: center;
+    line-height: 40px;
+    color: #000000;
+    top: 14px;
+
+}
+.available {
+    position: absolute;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff545f;
+    text-align: center;
+    line-height: 40px;
+    color: #000000;
+    top: 14px;
+
+}
