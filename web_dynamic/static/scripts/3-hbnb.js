@@ -28,7 +28,9 @@ $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
   }
 });
 
-$.get('http://0.0.0.0:5001/api/v1/places_search/?format=json', function (data) {
+$(document).ready(function() {
+  $.post({
+    url:('http://0.0.0.0:5001/api/v1/places_search/?format=json', function (data) {
   for (const place of data) {
     const article = $('<article></article>');
 
