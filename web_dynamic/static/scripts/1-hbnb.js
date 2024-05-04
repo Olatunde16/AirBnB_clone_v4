@@ -3,15 +3,16 @@ $(document).ready(function () {
   const amenities = {};
 
   function updateAmenities () {
-    const checkedAmenities = Object.keys(amenities);
-    const amenitiesText = checkedAmenities.join(',');
-    $('#amenities h4').text(amenitiesText);
+    const amenityList = Object.values(amenities).join(', ');
+    $('.amenities h4').text(amenityList);
   }
 
   $('input[type="checkbox"]').change(function () {
-    const amenityId = $(this).attr('data-id');
+    const amenityId = $(this).data('id');
+    const amenityName = $(this).data('name');
+
     if ($(this).is(':checked')) {
-      amenities[amenityId] = true;
+      amenities[amenityId] = amenityName;
     } else {
       delete amenities[amenityId];
     }
